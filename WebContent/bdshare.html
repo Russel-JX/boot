@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF8">
+<title>百度分享</title>
+	<link href="css/bootstrap.css" rel="stylesheet" />
+	<script src="js/jquery1.10.js" type="text/javascript"></script>
+	
+	<style type="text/css">
+		a image{
+			display:none;
+		}
+	</style>
+</head>
+<body>
+	<div id="img"></div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#img").append('<img alt="" src="images/logo.jpg">');
+		});
+	</script>
+	
+
+
+
+	 <!-- Baidu Button BEGIN -->
+     <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare" data="{
+		'bdDes':'您的自定义分享摘要',
+		'text':'您的自定义分享内容',
+		'title':'您的自定义pop窗口标题',
+		'pic':'您的自定义分享出去的图片',
+		'bdComment':'您的自定义分享评论',
+		'url':'您的自定义分享url',
+		'wbuid':'您的自定义微博 ID'
+	}">
+        <a class="bds_qzone"></a>
+        <a class="bds_tsina"></a>
+        <a class="bds_tqq"></a>
+        <a class="bds_renren"></a>
+        <span class="bds_more">更多</span>
+    </div>
+    <script type="text/javascript" id="bdshare_js" data="type=tools&mini=1" ></script> 
+    <script type="text/javascript" id="bdshell_js"></script> 
+    <script type="text/javascript">
+	/**
+	 * 在这里定义bds_config
+	 */
+	var bds_config = {};
+
+	document.getElementById('bdshell_js').src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+</script>
+Baidu Button END
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$.ajax({
+	    		url:'http://api.share.baidu.com/getnum?http://localhost:8080/BootStrap/bdshare.html&callback=bdShare.fn._getShare&type=share',
+				type:'get',
+				dataType:'jsonp',
+				cache:false,
+				data:{
+				},
+				beforeSend:function(xhr){
+				},
+				complete:function (XMLHttpRequest, textStatus) {
+				},
+				success:function(backData,status){
+					//alert(backData.num[0]);
+				},
+				error:function(XmlHttpRequest){
+				}
+	    		
+	    	});
+		});
+	</script>
+	<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb8818dba860cdbbccb2abf51bd4d972c' type='text/javascript'%3E%3C/script%3E"));
+</script>
+	
+	
+	<!-- 百度统计 -->
+	<!-- <script type="text/javascript">
+		var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ffdd2ecab4e66709853913d023f5ab35e' type='text/javascript'%3E%3C/script%3E"));
+	</script> -->
+
+
+	<script src="js/bootstrap.js"  type="text/javascript"></script>
+</body>
+</html>

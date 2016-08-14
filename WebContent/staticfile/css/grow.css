@@ -1,0 +1,72 @@
+/*
+ 成长元素
+*/
+.form-control {
+	font-size:24px;
+  	border: 0;
+  	height:49px;
+  	border-radius: 10px;
+}
+.foods{
+	margin-bottom:40px;
+}
+.food-section{
+	margin:22px 0;
+}
+.food-info{
+	margin-right:40px;
+}
+.food-img{
+	margin-bottom:21px;
+}
+.func-btn{
+	margin-right:18px;	
+}
+.main-food-head{
+	overflow:hidden;
+	background:#fff;
+	padding-top:28px;
+}
+.p-content{
+	overflow:hidden;
+}
+.detail-food-text{
+	margin-top:25px;
+	margin-bottom:58px;
+	font-size:22px;
+	color:#464546;
+	
+}
+.detail-content{
+	overflow:hidden;
+	padding-bottom:19px;
+	margin-bottom:1px;
+}
+.food-name{
+	font-size:22px;
+}
+.p-text{
+	font-size:22px;
+}
+.main-food-desc *{
+	font-size:22px;
+}
+.main-food-desc p{
+	margin-bottom:3px;
+}
+.main-food-img{
+	margin-top:5px;
+	margin-right:8px;
+}
+.change:hover{
+	cursor:pointer;
+}
+.index-info{
+	margin-bottom:5px;
+}
+.food-index{
+	overflow:hidden;
+}
+.index-text{
+	padding-top:3px;
+}

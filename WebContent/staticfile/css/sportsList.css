@@ -1,0 +1,21 @@
+/*
+ 运动列表
+*/
+.wrapper{
+	background:#fff;
+}
+.ka{
+	font-size:20px;
+}
+.add{
+	cursor:pointer;
+	font-size:36px;
+	color:#0fb5ff;
+	/* font-weight:bold; */
+}
+.decline{
+	cursor:pointer;
+	font-size:36px;
+	color:#f81700;
+	/* font-weight:bold; */
+}

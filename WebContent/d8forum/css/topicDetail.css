@@ -1,0 +1,175 @@
+@CHARSET "UTF-8";
+/* 上方快捷按钮 */
+.btn-topics{
+	overflow: hidden;
+	background:rgb(246,246,246);
+	border-left:1px solid rgb(215,215,215);
+	border-right:1px solid rgb(215,215,215);
+}
+.a-tags{
+	display:block;
+}
+.btn-a{
+	float:left;
+	/* display:block;
+	text-align:center; */
+}
+
+/* 覆盖ckeditor样式 */
+.cke_bottom{
+	background: #fff !important;
+}
+
+
+.reply-amount{
+	background:rgb(246,246,246);
+	border-left:1px solid rgb(215,215,215);
+	border-right:1px solid rgb(215,215,215);
+}
+.logo-name{
+	font-size:20px;
+}
+.logo-package{
+	width:300px;
+}
+.logo-detail{
+	padding-top:10px;
+}
+.logo-name{
+	margin-left:8px;
+	margin-right:10px;
+}
+.topic-amount{
+	margin-left:8px;
+	padding-top:10px;
+}
+.btn-post-new-topic{
+	width: 90px;
+  	height: 22px;
+  	font-size:12px;
+  	line-height: 21px;
+}
+.btn-post-new-reply {
+	margin-top: 20px;
+  	width: 70px;
+ 	height: 35px;
+  	font-size: 18px;
+  	line-height: 32px;
+  	border-radius: 5px;
+}
+.reply-amount{
+	border-left:1px solid rgb(215,215,215);
+	padding:15px 10px;
+}
+.topicdetail-title{
+	margin-top:20px;
+	font-size:25px;
+}
+.author-name{
+	margin-bottom:-6px;
+	margin-right:6px;
+}
+.post-time{
+	margin-left:15px;
+}
+
+.topicdetail-content{
+	text-align:justify;/* 文字两端对齐 */
+	font-size: 15px;
+    word-wrap: break-word;
+	/* color: #333; */
+	margin-bottom: 15px;
+	text-indent: 2em;
+	line-height: 24px;
+	zoom: 1;
+}
+.others-up{
+	padding:10px 0;
+}
+.others-down{
+	padding: 30px 50px;
+}
+.main-left .reply-list{
+	padding:40px 15px;
+}
+.reply-more{
+  	margin: 30px 0;
+  	padding-bottom: 20px;
+}
+.reply-item{
+	margin-bottom:20px;
+}
+.favorite-info{
+	font-size:14px;
+}
+.btn-recommend{
+	background: rgb(242,249,242);
+	color: rgb(128,255,128);
+	border: 1px solid rgb(175,227,57);
+}
+.btn-favorite{
+	background: rgb(255,245,227);
+	color: rgb(226,213,197);
+	border: 1px solid rgb(254,231,197);
+}
+.replyer1-info{
+	text-align:center;
+}
+.reply1-content{
+	text-align: justify;
+	margin-left: 100px;
+}
+.reply-from1{
+	margin-top:80px;
+	margin-bottom:20px;
+}
+.reply-from2{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.reply2-content{
+	text-align: justify;
+}
+.reply-level-two{
+	overflow: hidden;
+	padding:15px 20px;
+	background:rgb(248,248,248);
+}
+.reply-sub-content{
+	margin-left: 40px;
+}
+.click-more{
+	cursor:pointer;
+}
+.reply-hidden{
+	display:none;	
+}
+.reply-hidden-show{
+	display:block;
+}
+
+
+.my-topics{
+	padding:15px 20px;
+}
+.my-tags{
+	padding:15px 20px;
+}
+.latest-topics{
+	padding:15px 20px;
+}
+.hot-topics{
+	padding:15px 20px;
+}
+.left-title{
+	font-size:18px;
+	margin-bottom:5px;
+}
+
+/* 标签下拉集合 */
+.tags{
+	position:relative;	
+}
+
+ 
+

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF8">
+<title>carousel</title>
+	<link href="css/bootstrap.css" rel="stylesheet" />
+	<!-- <link href="css/carousel.css" rel="stylesheet" /> -->
+	<script src="js/jquery1.10.js" type="text/javascript"></script>
+	<style type="text/css">
+		/* CUSTOMIZE THE CAROUSEL
+		-------------------------------------------------- */
+		
+		/* Carousel base class */
+		.carousel {
+			height: 500px;
+			margin-bottom: 60px;
+		}
+		/* Since positioning the image, we need to help out the caption */
+		.carousel-caption {
+			z-index: 10;
+		}
+		
+		/* Declare heights because of positioning of img element */
+		.carousel .item {
+			height: 500px;
+			background-color: #777;
+		}
+		
+		.carousel-inner>.item>img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			min-width: 100%;
+			height: 500px;
+		}
+		 /* Bump up size of carousel content */
+	   .carousel-caption p {
+	        margin-bottom: 20px;
+	        font-size: 21px;
+	        line-height: 1.4;
+	   }
+	</style>
+</head>
+<body>
+	<div class="page-header">
+		<h1>carousel</h1>
+	</div>
+	<h3>attribute</h3>
+	<h4>
+		IE8/9 do not support animation of this component!<br/>
+		data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide"<br/>
+		背景色和文字颜色，text:First slide（文字为First slide）
+	</h4>
+	
+	<div id="myCarousel" class="carousel slide" data-ride="carousel" data-wrap="true">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>1Example headline.</h1>
+              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>2Another example headline.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>3One more for good measure.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+    
+    <div id="russelCarousel" data-ride="carousel" data-interval="2000" data-pause="hover" data-wrap="true" class="carousel slide">
+    	<!-- indicators(The round button) -->
+    	<ol class="carousel-indicators" >
+    		<li data-target="#russelCarousel" data-slide-to="0" class="active"></li>
+    		<li data-target="#russelCarousel" data-slide-to="1"></li>
+    		<li data-target="#russelCarousel" data-slide-to="2"></li>
+    	</ol>
+    	<!-- inner -->
+    	<div class="carousel-inner" >
+    		<!-- item -->
+    		<div class="item active">
+	    		<img data-src="holder.js/900x500/auto/#666:#000000/text:Russel First slide" />
+	    		<div class="container">
+		    		<div class="carousel-caption">
+		    			<h1>Hello World!</h1>
+		    			<p>Let's make it a better world!</p>
+		    			<p><a href="#register" id="register"  class="btn btn-lg btn-primary">I'm in</a></p>
+		    		</div>
+	    		</div>
+	    	</div>
+    		<div class="item">
+    			<img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:Slide Two"  />
+    			<div class="container">
+    				<div class="carousel-caption">
+	    				<h1>We Are The Future!</h1>
+	    				<p>The world belong to us.We have to protect her.And give other creature the space to live.</p>
+	    				<p><a href="#yes" id="yes" class="btn btn-lg btn-primary">We Can</a></p>
+	    			</div>
+    			</div>
+    		</div>
+    		<div class="item">
+    			<img data-src="holder.js/900x500/auto/#666:#5a5a5a/text:Slide Three" />
+    			<div class="container">
+    				<div class="carousel-caption">
+    					<h1>We Have Faith!</h1>
+    					<p>As long as we believe in ourself,we have the chance to achieve it.</p>
+    					<p><a href="#believe" id="believe" class="btn btn-lg btn-primary">We Believe</a></p>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    	<!-- control -->
+    	<a class="left carousel-control" href="#russelCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    	<a class="right carousel-control" href="#russelCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+    
+    <h3>JS</h3>
+	<div class="btn-group">
+		<button id="recycle" class="btn btn-sm btn-info">Recycle the slide</button>
+		<button id="pause" class="btn btn-sm btn-info">Pause the slide</button>
+		<button id="prev" class="btn btn-sm btn-info">Previous slide</button>
+		<button id="next" class="btn btn-sm btn-info">Next the slide</button>
+	</div>
+	<div id="message">I'm a message!</div>
+	<div id="selected" class="dropdown">
+		<a data-toggle="dropdown" data-target="#" class="btn btn-sm btn-info">SelectSlide Page</a>
+		<ul class="dropdown-menu selectedSlide">
+			<li value="0"><a href="#s1" id="s1">Slide 1</a></li>
+			<li value="1"><a href="#s2" id="s2">Slide 2</a></li>
+			<li value="2"><a href="#s3" id="s3">Slide 3</a></li>
+		</ul>
+	</div>
+
+	<div id="russelCarousel2"  class="carousel slide">
+    	<!-- indicators(The round button) -->
+    	<ol class="carousel-indicators" >
+    		<li data-target="#russelCarousel2" data-slide-to="0" class="active"></li>
+    		<li data-target="#russelCarousel2" data-slide-to="1"></li>
+    		<li data-target="#russelCarousel2" data-slide-to="2"></li>
+    	</ol>
+    	<!-- inner -->
+    	<div class="carousel-inner" >
+    		<!-- item -->
+    		<div class="item active">
+	    		<img data-src="holder.js/900x500/auto/#666:#000000/text:Russel First slide" />
+	    		<div class="container">
+		    		<div class="carousel-caption">
+		    			<h1>JS:Hello World!</h1>
+		    			<p>Let's make it a better world!</p>
+		    			<p><a href="#register2" id="register2"  class="btn btn-lg btn-primary">I'm in</a></p>
+		    		</div>
+	    		</div>
+	    	</div>
+    		<div class="item">
+    			<img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:Slide Two"  />
+    			<div class="container">
+    				<div class="carousel-caption">
+	    				<h1>JS:We Are The Future!</h1>
+	    				<p>The world belong to us.We have to protect her.And give other creature the space to live.</p>
+	    				<p><a href="#yes2" id="yes2" class="btn btn-lg btn-primary">We Can</a></p>
+	    			</div>
+    			</div>
+    		</div>
+    		<div class="item">
+    			<img data-src="holder.js/900x500/auto/#666:#5a5a5a/text:Slide Three" />
+    			<div class="container">
+    				<div class="carousel-caption">
+    					<h1>JS:We Have Faith!</h1>
+    					<p>As long as we believe in ourself,we have the chance to achieve it.</p>
+    					<p><a href="#believe2" id="believe2" class="btn btn-lg btn-primary">We Believe</a></p>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    	<!-- control -->
+    	<a class="left carousel-control" href="#russelCarousel2" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    	<a class="right carousel-control" href="#russelCarousel2" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+    <script type="text/javascript">
+    	$(function(){
+    		//Enable the slide show by JS
+    		$('#russelCarousel2').carousel({
+    			'wrap':false,//recyle the slide show
+    			'interval':3000,//time interval between two slides.
+    			'pause':'hover'//When mouse hover the slide,stop the slide to switch.
+    		});
+    		
+    	});
+    	
+    	$('#recycle').click(function(e){
+    		$('#russelCarousel2').carousel('cycle');
+    	});
+    	$('#pause').click(function(e){
+    		$('#russelCarousel2').carousel('pause');
+    	});
+    	$('#prev').click(function(e){
+    		$('#russelCarousel2').carousel('prev');
+    	});
+    	$('#next').click(function(e){
+    		$('#russelCarousel2').carousel('next');
+    	});
+    	$('.selectedSlide li').click(function(e){
+    		//alert($(this).attr('value'));
+    		$('#russelCarousel2').carousel(parseInt($(this).attr('value')));
+    	});
+    	
+    	$('#russelCarousel2').on('slide.bs.carousel',function(e){
+    		//alert('Before sliinge one page...');
+    		$('#message').html('<font color="green">Before sliinge one page...</font>');
+    	});
+    	$('#russelCarousel2').on('slid.bs.carousel',function(e){
+    		//alert('After sliding one page...');
+    		$('#message').html('<font color="gray">After sliinge one page...</font>');
+    	});
+    </script>
+	
+	
+	
+	<script src="js/bootstrap.js"  type="text/javascript"></script>
+	<script src="js/holder.js"  type="text/javascript"></script>
+</body>
+</html>

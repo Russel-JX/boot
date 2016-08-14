@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF8">
+<title>$.deferred简介 deferred.then() deferred.resolve()方法</title>
+	<!-- 选项卡图标 -->
+	<link  rel="shortcut icon" href="../images/logo.ico"  type="image/x-icon"/>
+	<link href="../css/my/deferred	.css" rel="stylesheet" />
+	<script src="../js/jquery1.10.js" type="text/javascript"></script>
+	
+		<script type="text/javascript">
+		$(document).ready(function(){
+			//异步访问abc.jsp，显然访问不到，将执行failCallbacks回调函数，即alert("Mission Failed")。
+			//由于 jQuery.get 方法返回 jqXHR 对象，该对象继承自延迟对象，所以我们可以添加 .then 方法
+			$.get("abc.jsp").then(
+				function(){alert("Mission Success");},
+				function(){alert("Mission Failed");}
+			);
+			
+		});
+	</script>
+</head>
+<body>
+	<h5>deferred(延迟)的描述及deferred的方法：http://www.css88.com/jqapi-1.9/category/deferred-object/</h5>
+	<h3>deferred.then描述: 当Deferred（延迟）对象解决，拒绝或仍在进行中时，调用添加处理程序。即当deferred对象监听状态处于完成、失败或进行中时，会 调用自定义的方法（doneCallbacks, failCallbacks或progressCallbacks ）执行</h3>
+	<i>注：这里的doneCallbacks, failCallbacks或progressCallbacks方法，只是指then方法的三个参数位置对应的形参方法，并不是名称为这些的方法。</i>
+	<h5>reference:http://www.css88.com/jqapi-1.9/deferred.then/</h5>
+	deferred.then( doneCallbacks, failCallbacks ) 返回promise，promise也有这几个方法(then, done, fail, always, pipe, and state）,也叫承诺；promise自带的这几个方法和deferred的自己的方法类似<br>
+	<font color="red">Promise （承诺）对象仅会暴露那些需要绑定额外的处理或判断状态的延迟方法(then, done, fail, always, pipe, progress, 和 state)时，并不会暴露任何用于改变状态的延迟方法(resolve, reject, notify, resolveWith, rejectWith, 和 notifyWith).</font>
+	当Deferred（延迟）对象得到解决时被调用的一个函数或函数数组。<br>
+	当Deferred（延迟）对象拒绝时被调用的一个函数或函数数组。 <br>
+	<h5>reference:http://www.css88.com/jqapi-1.9/deferred.resolve/</h5>
+	deferred.resolve( args )<br>
+	当延迟对象被 resolved 时，任何通过 deferred.then或deferred.done 添加的 doneCallbacks，都会被调用。
+	回调函数的执行顺序和它们被添加的顺序是一样的。传递给 deferred.resolve() 的 args 参数，会传给每个回调函数。
+	当延迟对象进入 resolved 状态后，再添加的任何 doneCallbacks，当它们被添加时，就会被立刻执行，并带上传入给 .resolve()的参数。
+	
+	<p></p>
+	<button>Filter Resolve</button>
+	<script type="text/javascript">
+		var filterResolve = function() {   
+				var defer = $.Deferred(),      
+				filtered = defer.then(function( value ) {        
+					return value * 2;      });//返回一个Promise对象，而promise对象有几个方法(then, done, fail, always, pipe, and state）
+				//执行完resolve方法后，将自动执行then中的doneCallbacks方法，即return value * 2; 
+				defer.resolve( 5 );
+				//回调then的doneCallbacks方法结束后，做一些其他操作；这里把结果输出到p元素上
+				filtered.done(function( value ) {    
+					$( "p" ).html( "Value is ( 2*5 = ) 10: " + value );  
+				});
+			}; 
+			$( "button" ).on( "click", filterResolve );
+	</script>
+	
+
+	
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>使用apply访问原始上下文</title>
+
+	<script type="text/javascript" src="../js/jquery1.10.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			/*通过将回调包装在另外一个匿名函数中，来保持原始的上下文：*/
+			function proxy(func,thisObject){
+				//alert(3);
+				//将clicky对象作为上下文（this），传过来。
+				return (function(){
+					console.log("获取调用者对象的参数 param1："+thisObject.param1);
+					return func.apply(thisObject,arguments)
+				});//注意return 匿名函数的写法，return 关键字不能少，否则无法增加监听。
+			}
+			/* function proxy2(func,thisObject){
+				return (function(){return clicky.wasClicked();});
+			} */
+			var clicky={
+				param1:"Hi there!",
+				wasClicked:function(){
+					console.log("I am clicked...");
+				},
+				addListeners:function(){
+					console.log("addListeners...");
+					//this指代自己（clicky对象）
+					var self = this;
+					$(".clicky").on("click",proxy(this.wasClicked,this));
+				}
+			};	
+			clicky.addListeners();
+			
+			
+		});
+	</script>
+	<style type="text/css">
+		.clicky{
+			color:red;
+		}
+		div:hover{
+			color:blue;
+			cursor:pointer;
+		}
+	</style>
+
+</head>
+<body>
+	<div class="clicky">Hit me hard!And watch console</div>
+	
+	
+</body>
+</html>

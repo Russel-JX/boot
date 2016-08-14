@@ -1,0 +1,47 @@
+.container{
+	margin-top:20px;
+	width:1300px;
+	height:700px;
+}
+.source,.canvas{
+	float:left;
+	width:499px;
+	height:497px;
+	border:1px solid #ddd;
+	margin-left:1%;
+	margin-right:auto;
+	padding:10px;
+}
+.canvas{
+	margin-left:50px;
+}
+.split,.location{
+	float:left;
+	border:1px solid #999;
+	width:159px;
+	height:159px;
+	background:#fff;
+}
+.split{
+	background:#ddd;
+}
+.split:hover{
+	border:1px solid #428bca;
+	cursor:pointer;
+}
+
+.imgtarget{
+	margin-left:15px;
+}
+.inner{
+	/* vertical-align:middle; */
+	/* height: 4em;
+	line-height: 4em;
+	overflow: hidden; */
+	margin-top:30%;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	font-size:50px;
+	font-weight:bold;
+}

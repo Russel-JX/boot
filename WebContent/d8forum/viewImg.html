@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>图片幻灯</title>
+	<script type="text/javascript" src="js/jquery1.10.js"></script>
+	<script type="text/javascript" src="js/plugin/jquery.bxslider.min.js"></script>
+	<!-- <script type="text/javascript" src="js/viewImg.js"></script> -->
+	<link href="css/plugin/jquery.bxslider.css" rel="stylesheet" type="text/css"></link>
+	<link href="common.css" rel="stylesheet" style="text/css"></link>
+	<link href="css/viewImg.css" rel="stylesheet" style="text/css"></link>
+	
+	<script type="text/javascript">
+		$(function(){
+			$(".forum-img-slider").bxSlider({
+				mode:"horizontal",
+				//adaptiveHeight:true,//根据图片的高度调整轮播的高度
+				//responsive:false,
+				touchEnabled:true,//移动端滑动生效
+				pager:false,
+				auto:true,
+				controls:true
+			});
+			
+		});
+	</script>
+	
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+		<div class="slider-package">
+			<ul class="forum-img-slider">
+				<div class="bxslider-inner">
+					<li class="slider-li" style="margin:0 auto;text-align:center;">
+						<img src="images/test-product.png" class="product-pic" />
+					</li>
+				</div>
+				<div class="bxslider-inner">
+					<li class="slider-li">
+						<img src="images/appid-subscr.jpg" class="product-pic" height="699px" />
+					</li>
+				</div>
+				<div class="bxslider-inner">
+					<li class="slider-li">
+						<img src="images/test-avatar2.png" class="product-pic" />
+					</li>
+				</div>
+			</ul>
+		</div>
+	
+	<!-- 遮罩 -->
+	<div class="modal-hide" style="display:block;"></div>
+</body>
+</html>

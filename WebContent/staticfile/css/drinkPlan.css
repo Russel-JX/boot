@@ -1,0 +1,92 @@
+/*
+ 定制计划
+*/
+/* body{
+	font-family:"黑体";
+	color:#1e1e1e;
+	font-size:26px;
+}  */
+/* @media only screen and (max-width:1920px){
+	body{
+		font-family:"黑体";
+		width:640px;
+	   	height:1058px;
+	   	background:url("../images/testbg.jpg"); 
+		filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";  
+		-moz-background-size:100% 100%;  
+		background-size:100% 100%;
+	}
+} */
+.navbar-default {
+	background: #0fb5ff;
+}
+
+.container > .navbar-header{
+	margin-left: 170px;
+}
+.center{
+	margin:0 auto;
+}
+.nav-title {
+	font-size: 36px;
+	
+}
+.navbar-default .navbar-nav > li{
+	margin-top:5px;
+}
+.navbar-default .navbar-nav > li > a{
+	color:#fff;
+}
+
+.jumbotron {
+	background: #fff;
+	color: #000;
+}
+
+.panel-body {
+	margin-top: 48px;
+	padding-left: 70px;
+	padding-right: 70px;
+}
+
+.panel-body>.row {
+	margin-bottom: 47px;
+}
+
+.btn-info {
+	color: #ffffff;
+	background-color: #11bfff;
+	border-color: #11bfff;
+}
+
+.control-label {
+	font-weight: normal;
+	font-size: 26px;
+	color: #0fb5ff;
+	letter-spacing: 1px;
+}
+
+.form-control {
+	border: 1px solid #0fb5ff;
+}
+.uptime,.downtime{
+	width:65%;
+}
+.minus{
+	margin-top:8px;
+	margin-right:5px;
+}
+.plus{
+	margin-top:8px;
+	margin-left:5px;
+}
+.h1 {
+	font-size: 28px;
+	font-family: "黑体";
+	margin-bottom: 30px;
+}
+
+.advice {
+	margin-top: 73px;
+	margin-bottom: 56px;
+}

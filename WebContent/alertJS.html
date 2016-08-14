@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF8">
+<title>alert</title>
+	<link href="css/bootstrap.css" rel="stylesheet" />
+	<script src="js/jquery1.10.js" type="text/javascript"></script>
+</head>
+<body>
+	<div class="page-header">
+		<h1>alert</h1>
+	</div>
+	<h3>JS</h3>
+	<div id="myAlert" class="alert alert-success" style="margin-left:200px;width:50%;">
+		Process <strong>Success!</strong>
+		<button id="close" type="button" data-dismiss="alert" class="btn btn-priamry btn-lg close">&times;</button>
+		<p>
+			<button id="closeAlert"  type="button"  class="btn btn-priamry">Close</button>
+			<button type="button"  class="btn btn-info">Other Action</button>
+		</p>
+	</div>
+	
+	<script type="text/javascript">
+		$('#closeAlert').click(function(e){
+			$('#myAlert').alert('close');
+		});
+		
+	</script>
+	
+	
+	
+	
+	
+	
+	<script src="js/bootstrap.js"  type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF8">
+<title>deferred.promise()</title>
+	<!-- 选项卡图标 -->
+	<link  rel="shortcut icon" href="../images/logo.ico"  type="image/x-icon"/>
+	<script src="../js/jquery1.10.js" type="text/javascript"></script>
+	<style>div {  height: 50px; width: 50px;  float: left; margin-right: 10px;  display: none; background-color: #090;}</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			/*
+			如果没有动画效果直接返回一个resolved状态的promise对象
+			*/
+			var div = $("<div />");
+			div.promise().done(function(param){
+				//alert(this===param&&this===div);
+				$("a").append( this===param&&this===div);
+			});
+			
+			/*
+			当所有的动画结果时(包括那些在动画回调函数和之后添加的回调函数中初始化的动画），受理（Resolve）返回的 Promise
+			*/
+			$("button").on( "click", function() {  
+				$("p").append( "Started...");   
+				$("div").each(function( i ) {    
+					//fadein显示；fadeout隐藏；
+					//先都展示，然后定时隐藏
+					$( this ).fadeIn().fadeOut(1000 * (i+1) );  
+				});   
+				//所有动画完成之后，给出提示
+				$( "div" ).promise().done(function() {    
+					$( "p" ).append( " Finished! " );  
+				});
+			});
+			
+		});
+	</script>
+</head>
+<body>
+	<h5>reference:http://www.css88.com/jqapi-1.9/promise/</h5>
+	<h3>.promise( [type ] [, target ] )返回: Promise 描述: 返回一个 Promise 对象，用来观察当某种类型的所有行动绑定到集合，排队与否还是已经完成。一般都是用于动画的监控，在动画完成后做一些操作。 </h3>
+	type (默认: fx)
+类型: String 
+需要待观察队列类型。
+target
+类型: PlainObject 
+将要绑定 promise 方法的对象。
+	<h5><font color="red">Deferred实例的方法！该方法是jQuery实例的方法</font></h5>
+	<a>aa--------</a>
+
+	<button id="btn" style="width:300px;" >Go</button>
+	<p>Ready...</p>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	
+	
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>事件委托</title>
+	<link href="../css/bootstrap.css" rel="stylesheet" />
+	<script type="text/javascript" src="../js/jquery1.10.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//通过父元素给子元素添加事件（只给子元素添加）
+			$("div").delegate("div","click",function(e){
+				console.log("点击的当前元素是："+e.currentTarget.id);
+			});
+			
+			//不要使用这种方法，$("div div").on("click",function(e){...});
+		});
+	</script>
+	<style type="text/css">
+		.father{
+			border:2px solid yellow;
+			/* height:100px; */
+			width:100px;
+		}
+		.father div{
+			border:2px solid blue;
+			height:50px;
+			width:50px;
+		}
+	</style>
+
+</head>
+<body>
+	<h3>我们可以直接给父元素绑定事件监听，用来检测
+在其子元素内发生的事件。这也是类似SproutCore（http://www.sproutcore.com/）这种框
+架所使用的技术，用来减少应用中的事件监听的数量：</h3>
+<h3>使用事件委托的另一个好处是，所有为元素动态添加的子元素都具有事件监听</h3>
+<h3>jquery中使用$.delegate()完成，</h3>
+
+	<div class="father" >
+		父亲
+		<div id="son1">孩子一</div>
+		<div id="son2">孩子二</div>
+		<div id="son3">孩子三</div>
+	</div>
+</body>
+</html>

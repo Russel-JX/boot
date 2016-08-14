@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF8">
+<title>旋转</title>
+<link href="css/bootstrap.css" rel="stylesheet" />
+<script src="js/jquery1.10.js" type="text/javascript"></script>
+
+<style type="text/css">
+.disqus-loader {
+	width: 29px;
+	height: 29px; 
+	margin: 11px 14px; 
+	background-image: url(../images/roll.png); 
+	background-repeat: no-repeat; 
+	background-position: -54px 0px; 
+	transform-origin: 50% 50% 0px;
+	
+	animation: disqus-embed-spinner .7s infinite linear alternate;
+	-webkit-animation: disqus-embed-spinner .7s infinite linear alternate;
+}
+
+@keyframes disqus-embed-spinner { 
+	0%{transform: rotate(0deg)}
+
+	100%{transform:rotate(360deg)}
+}
+@-webkit-keyframes disqus-embed-spinner { 
+	0%{-webkit-transform: rotate(0deg)}
+	100%{-webkit-transform:rotate(360deg)}
+}
+.disqus-loader2 {
+	width: 29px;
+	height: 29px; 
+	margin: 11px 14px; 
+	background-image: url(../images/roll.png); 
+	background-repeat: no-repeat; 
+	background-position: -54px 0px; 
+	transform-origin: 50% 50% 0px;
+}
+.disqus-loader2:hover{
+	animation: disqus-embed-spinner2 .7s 1 linear ;
+	-webkit-animation: disqus-embed-spinner2 .7s 1 linear ;
+}
+
+@keyframes disqus-embed-spinner2 { 
+	0%{transform: rotate(0deg)}
+
+	100%{transform:rotate(360deg)}
+}
+@-webkit-keyframes disqus-embed-spinner2 { 
+	0%{-webkit-transform: rotate(0deg)}
+	100%{-webkit-transform:rotate(360deg)}
+}
+
+.bg-change{
+	width:90px;
+	height:90px;
+	background:red;
+	
+	animation:red-to-blue 3s ease-in-out 1s infinite alternate;/*动画名称、总时长、效果、开始时延迟时间、播放次数、是否正向逆向轮流播放*/
+}
+@keyframes red-to-blue{
+	0% {background:red;}/*使用form，to 或百分比规定动画的开始和结束效果*/
+	25% {background:blue;}
+	50% {background:yellow;}
+	75% {background:brown;}
+	100% {background:black;}
+}
+
+.location-change{
+	width:200px;
+	height:200px;
+	border:solid 2px red;
+	margin-left:800px;
+	animation:moving 2s ease 0.5s 2 normal;
+	-webkit-animation:moving 2s ease 0.5s 2 normal;
+}
+@keyframes moving{
+	0%{margin-left:800px;}
+	100%{margin-left:0px;}
+}
+@-webkit-keyframes moving{
+	0%{margin-left:800px;}
+	100%{margin-left:0px;}
+}
+
+/* transition */
+	.tran{
+	display:block;
+	background:#000;
+	width:100px;
+	height:100px;
+	transition:width 2s;
+	-webkit-transition:width 2s;
+	
+}
+.tran:hover{
+	width:200px;
+}
+	.tran2{
+	display:block;
+	background:#000;
+	width:100px;
+	height:100px;
+	transition:all .5s ease-out;
+	-webkit-transition:all .5s ease-out;
+	
+	
+}
+.tran2:hover{
+	transform:rotate(360deg);
+}
+</style>
+</head>
+<body>
+	<div class="disqus-loader"
+		style="">
+	</div>
+	
+	<div class="disqus-loader2"
+		style="">
+	</div>
+	
+	<div style="clear:both;"></div>
+	<div class="bg-change" style="width:90px;height:90px;"></div>
+	
+	<!-- 平移效果 -->
+	<div class="location-change">
+		<div>a</div>
+		<div>b</div>
+		<div>c</div>
+		<div>d</div>
+	</div>
+	<div class="tran"
+	</div><br>
+<br>
+<br>
+<br><br><br><br>
+	<div class="tran2">
+	</div>
+<div style="clear:both;"></div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div>
+	animation属性的几个常用内容
+	<table class="dataintable">
+<tbody><tr>
+<th style="width:30%;">值</th>
+<th>描述</th>
+</tr>
+
+<tr>
+<td><i><a href="/cssref/pr_animation-name.asp" title="CSS3 animation-name 属性">animation-name</a></i></td>
+<td>规定需要绑定到选择器的 keyframe 名称。必须的</td>
+</tr>
+
+<tr>
+<td><i><a href="/cssref/pr_animation-duration.asp" title="CSS3 animation-duration 属性">animation-duration</a></i></td>
+<td>规定完成动画所花费的时间，以秒或毫秒计。必须的</td>
+</tr>
+
+<tr>
+<td><i><a href="/cssref/pr_animation-timing-function.asp" title="CSS3 animation-timing-function 属性">animation-timing-function</a></i></td>
+<td>规定动画的速度曲线。linear 	动画从头到尾的速度是相同的。ease 	默认。动画以低速开始，然后加快，在结束前变慢。ease-in 	动画以低速开始。ease-out 	动画以低速结束。ease-in-out 	动画以低速开始和结束。cubic-bezier(n,n,n,n) 	在 cubic-bezier 函数中自己的值。可能的值是从 0 到 1 的数值。</td>
+</tr>
+
+<tr>
+<td><i><a href="/cssref/pr_animation-delay.asp" title="CSS3 animation-delay 属性">animation-delay</a></i></td>
+<td>规定在动画开始之前的延迟。以秒或毫秒计。默认值是 0。</td>
+</tr>
+
+<tr>
+<td><i><a href="/cssref/pr_animation-iteration-count.asp" title="CSS3 animation-iteration-count 属性">animation-iteration-count</a></i></td>
+<td>规定动画应该播放的次数。n 	定义动画播放次数的数值。infinite 	规定动画应该无限次播放。</td>
+</tr>
+
+<tr>
+<td><i><a href="/cssref/pr_animation-direction.asp" title="CSS3 animation-direction 属性">animation-direction</a></i></td>
+<td>规定是否应该轮流反向播放动画。normal 	默认值。动画应该正常播放。alternate 	动画应该轮流反向播放。</td>
+</tr>
+</tbody></table>
+</div>
+</body>
+</html>

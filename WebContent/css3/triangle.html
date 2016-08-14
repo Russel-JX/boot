@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF8">
+<title>css3制作三角形</title>
+	<style type="text/css">
+.trai1 {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin: -100px;
+	width: 200px;
+	height: 200px;
+	background: red;
+	transform: rotate(45deg);
+}
+
+.trai2 {
+	width: 0;
+	height: 0;
+	border-top: 100px solid red;
+	border-right: 100px solid green;
+	border-bottom: 100px solid blue;
+	border-left: 100px solid yellow;
+}
+.trai3 {
+	margin-left:200px;
+	width: 0;
+	height: 0;
+	border-top: 100px solid red;
+	border-right: 100px solid green;
+	border-bottom: 100px solid blue;
+	border-left: 100px solid yellow;
+	border-color:red transparent transparent transparent;
+	
+	/* 或者
+	border-top: 100px solid red;
+	border-right: 100px solid transparent;
+	border-bottom: 100px solid transparent;
+	border-left: 100px solid transparent; */
+}
+
+.trai4 {
+	width: 0;
+	height: 0;
+	border-top: 100px solid brown;
+	border-right: 100px solid purple;
+}
+.trai5 {
+	width: 0;
+	height: 0;
+	border-top: 100px solid brown;
+	border-bottom: 100px solid purple;
+}
+.trai6 {
+	width: 0;
+	height: 0;
+	border-top: 100px solid brown;
+	border-left: 100px solid purple;
+}
+.trai7 {
+	width: 0;
+	height: 0;
+	border-top: 100px solid brown;
+	border-right: 100px solid purple;
+	border-bottom: 100px solid yellow;
+}
+.trai8 {
+	width: 0;
+	height: 0;
+	border-top: 100px solid brown;
+}
+.trai9 {
+	background:#987159;
+	width: 50px;
+	height: 50px;
+	border-top: 100px solid red;
+	border-right: 100px solid green;
+	border-bottom: 100px solid blue;
+	border-left: 100px solid yellow;
+}
+.trai10 {
+	margin-left:100px;
+	background:#987159;
+	width: 50px;
+	height: 50px;
+	border-top: 100px solid red;
+	border-right: 100px solid green;
+	border-bottom: 100px solid blue;
+	/* border-left: 100px solid yellow; */
+}
+.trai11 {
+	background:#987159;
+	width: 50px;
+	height: 50px;
+	border-top: 100px solid red;
+	border-right: 200px solid green;
+	border-bottom: 100px solid blue;
+	border-left: 200px solid yellow;
+}
+.trai12 {
+	width: 0;
+	height: 0;
+	border-top: 200px solid red;
+	border-right: 100px solid green;
+	border-bottom: 100px solid blue;
+	border-left: 100px solid yellow;
+}
+</style>
+	
+</head>
+<body>
+	<div class="trai9">宽度和高度不为0的样式</div><br>
+	<div class="trai10">宽度和高度不为0的样式</div><br>
+	<div class="trai11">更陡的三角</div><br>
+	<div class="trai1">1</div><br>
+	<div class="trai2">2</div><br>
+	<div class="trai12">更陡的三角2</div><br>
+	<div class="trai3">3</div><br>
+	<div class="trai4">上右</div><br>
+	<div class="trai5">上下</div><br>
+	<div class="trai6">上左</div><br>
+	<div class="trai7">上右下</div><br>
+	<div class="trai8">上</div><br>
+<p>利用上、右、下、左边框的覆盖性。重合的部分规则：当超过45度时，重合的部分显示被超过的边框的颜色。不超过45度时，重合的部分显示没有超过45度的边框的颜色。
+当设置元素的width和height为0时，上、右、下、左边框都已中心点作为基点向外辐射，重合部分的规则和上面的一样。
+设置其他三个边框的颜色为透明，使其看似是一个三角形。
+如设置向下的三角形，则应该把右、下、左边的边框颜色置为透明；
+如果还想设置三角形更“陡峭”一些，那么上边框应该被覆盖的多一些，则应该增加上边框的宽度或减小左右边框的宽度，
+这样重合部分的分界线就会被向上拉升一些（分界线与水平线的夹角，即重合线更向上，就会大于45度），看着更陡峭一些。
+参见：http://127.0.0.1:8080/BootStrap/css3/triangle.html
+http://www.cnblogs.com/daxiong/articles/3158630.html
+http://yanhaijing.com/css/2014/02/22/css-refresher-border/</p>
+	
+	
+	
+	
+	
+</body>
+</html>

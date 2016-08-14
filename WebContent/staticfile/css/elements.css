@@ -1,0 +1,35 @@
+/*
+ 营养成分
+*/
+.wrapper{
+	background:#fff;
+}
+.note{
+	margin-bottom:35px;
+	color:#0fb5ff;
+}
+.text-blue1,.text-blue2{
+	color:#0fb5ff;
+}
+.data-item{
+	overflow:hidden;
+	margin-bottom:27px;
+}
+.data-img{
+	padding-top:7px;
+	margin-right:30px;
+}
+.data-info{
+	overflow:hidden;
+	padding-bottom:15px;
+	border-bottom:1px solid #dddddd; 
+}
+.data-up{
+	margin-bottom:23px;
+}
+.text-blue1{
+	margin-left:25px;
+}
+.data-down-1{
+	margin-right:51px;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>食物营养</title>
+<SCRIPT src="staticfile/js/jquery1.10.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="staticfile/js/bootstrap.js" type="text/javascript"></SCRIPT>
+<link rel="stylesheet" href="staticfile/css/bootstrap.css">
+<link rel="stylesheet" href="staticfile/css/common.css">
+<style type="text/css">
+	.p-section {
+		margin-top: 0;
+		margin-bottom: 3px;
+	}
+	.form-control{
+		border:0;
+	}
+	@media only screen and (max-width: 1920px){
+		.bg-nutri{
+			width:1140px;
+			height:248px;
+			background:url("staticfile/images/nutri.png");
+			filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";  
+			-moz-background-size:100% 100%;  
+			background-size:100% 100%;
+		}
+	}
+	@media only screen and (max-width: 730px){
+		.bg-nutri{
+			width:640px;
+			height:248px;
+			background:url("staticfile/images/nutri.png");
+			filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";  
+			-moz-background-size:100% 100%;  
+			background-size:100% 100%;
+		}
+	}
+	
+</style>
+</head>
+<body>
+
+	<div class="data-item">
+		<div class="data-img pull-left">
+			<img src="../staticfile/images/food/" width="130px" height="114px"
+				alt="图片暂缺">
+		</div>
+		<div class="data-info">
+			<div class="data-up">
+				西红柿<span class="text-blue1">350</span>ka
+			</div>
+			<div class="data-down">
+				<div class="data-down-1 pull-left">
+					钙：<span class="text-blue2">12.00</span>mg
+				</div>
+				<div class="data-down-2 pull-left">
+					脂肪：<span class="text-blue2">733.00</span>g
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><img src="staticfile/images/back.png" width="20px" height="34px"></a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#about" class="nav-title"></a></li>
+					<li><a href="#contact"></a></li>
+					<li><a href="#contact" class="nav-title">食物营养</a></li>
+				</ul>
+				<a href="#contact" class="nav-share"><img src="staticfile/images/shareto.png" width="40px" height="39px" style="margin-top:10px;"></a>
+			</div>
+			
+		</div>
+	</div>
+
+	<div class="container theme-showcase">
+		<div class="wrapper">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="search"><input class="form-control" type="text" placeholder='查询食物或者元素名'></div>
+				<div class="bg-nutri"></div>
+				<div class="p-section">
+					<div class="p-head">
+						<div><img src="staticfile/images/grow.png" width="45px" height="48px" class="p-img pull-left"></div>
+						<div class="region-title-blue">成长元素</div>
+					</div>
+					<div class="p-text">7-12岁的青少年正处于成长发育阶段，了解所需成长元素，帮助孩子健康成长。</div>
+				</div>
+				<div class="p-section">
+					<div class="p-head">
+						<div><img src="staticfile/images/fit.png" width="45px" height="48px" class="p-img pull-left"></div>
+						<div class="region-title-blue">瘦身大作战</div>
+					</div>
+					<div class="p-text">想瘦，却不想节食？看这里，了解敌人量食物，吃了还能瘦。</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+
+</body>
+</html>

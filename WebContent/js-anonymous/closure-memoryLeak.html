@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>闭包</title>
+
+	<script type="text/javascript" src="../js/jquery1.10.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			/*
+				内存泄露：以前分配的一块内存不在需要使用或无法访问，但并没有释放它，导致可用的内存越来越少，就是内存泄露。
+				由于IE对JScript对象和COM对象使用不同的垃圾收集例程，因此闭包在IE中会导致一些问题。具体来说，若闭包作用域链中保存着一个HTML元素，就意味着该元素将无法被销毁：
+			*/
+			/*
+				当iememery()执行之后:
+				js_obj是一个DOM元素的引用，DOM元素它长期在网页当中，不会消失，而这个DOM元素的一属性oncontextmenu，
+				又是内部的函数引用（闭包），而这个匿名函数又和js_obj之间有隐藏的关联（作用域链）
+				所以形成了一个，循环引用.即：
+				js_obj.oncontextmenu 间接引用到 js_obj 
+				也就是说，这个对象的一个属性，又间接的引用了自己。
+			*/
+			function iememery(){
+		        var js_obj = document.createElement("div");
+		        js_obj.oncontextmenu = function(){ return false;}    
+			}
+			iememery();
+			
+			
+			/*
+				解决办法一：
+			*/
+			function iememery2(){
+		        var js_obj = document.createElement("div");
+		        js_obj.oncontextmenu = function(){ return false;}  
+		        js_obj = null;//断开引用
+			}	
+			iememery2();
+			
+			/*
+				解决办法二：
+				比包中只要此元素的摸个东西，而不是整个元素的情况
+			*/
+			function iememery2(){
+		        var js_obj = document.createElement("div");
+		        var content = js_obj.toString();
+		        js_obj.oncontextmenu = function(){ return js_obj.toString();}  
+		        js_obj = null;
+			}	
+			iememery2();
+			
+			
+			
+		});
+	</script>
+
+</head>
+<body>
+	<h3>**只要有循环引用,就会在IE下产生内存泄露。**</h3>
+	当IE中发生js对象与dom对象直接的循环引用，并且之后没有引用指向他们，
+如果是IE 6, 内存泄漏，直到关闭IE进程为止
+如果是IE 7，内存泄漏， 直到离开当前页面为止
+如果是IE 8， GC回收器回收他们的内存，无论当前是不是compatibility模式。
+之前的IE js引擎里的GC回收器只能处理js对象，不能处理DOM对象。
+
+由于IE9之前的版本对JScript对象和COM对象使用不同的垃圾收集例程，因此闭包在IE的这些版本中会导致如上问题。
+这个匿名函数作为element元素事件处理程序，形成闭包的状态就会保存对父层函数内活动对象的引用，只要匿名函数存在，
+element的引用数至少也是1，因此它所占用的内存就永远不会被回收。注意，闭包会引用包含函数的整个活动对象，
+即使闭包不直接引用element，包含函数的活动对象中也仍然会保存一个引用。因此，有必要把使用完的element变量设置为null
+解除对DOM对象的引用，确保正常回收其占用的内存。
+	
+</body>
+</html>

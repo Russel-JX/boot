@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF8">
+<title>$().offset</title>
+	<!-- 选项卡图标 -->
+	<link  rel="shortcut icon" href="../images/logo.ico"  type="image/x-icon"/>
+	<script src="../js/jquery1.10.js" type="text/javascript"></script>
+	
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var os = $("p:last").offset();
+				$("p:last").html("此元素的offset值是： "+os.top+"|距离左边距离是： "+os.left+"|宽度是： "+$("p:last").width()+"|高度是： "+$("p:last").height());
+			});
+		</script>
+</head>
+<body>
+<h3>获取匹配元素在当前视口的相对偏移(offset)。
+
+
+返回的对象包含两个整型属性：top 和 left。此方法只对可见元素有效。
+
+	
+	</h3>
+	<p>Hello World!</p><p>Hi Wall E!</p>
+	
+
+	
+</body>
+</html>

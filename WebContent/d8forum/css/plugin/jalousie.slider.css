@@ -1,0 +1,36 @@
+#slider {
+	Z-INDEX: 1; 
+	WIDTH: 100%;
+	BACKGROUND: #000; 
+	OVERFLOW: hidden; 
+}
+#slider .slide {
+	Z-INDEX: 10; 
+	POSITION: absolute; 
+	BORDER-LEFT: #000 1px solid; 
+	WIDTH: 635px; 
+	BACKGROUND: #000; 
+	HEIGHT: 900px; 
+	OVERFLOW: hidden; 
+	CURSOR: default; 
+	LEFT: 22px;
+	text-align:left;
+}
+#slider .title {
+	COLOR: #f80; FONT-SIZE: 1.2em; FONT-WEIGHT: bold; MARGIN-RIGHT: 1.5em; TEXT-DECORATION: none
+}
+#slider .text {
+	POSITION: absolute; TEXT-ALIGN: justify; WIDTH: 470px; DISPLAY: none; FONT-FAMILY: verdana, arial, Helvetica, sans-serif; COLOR: #fff; FONT-SIZE: 0.9em; TOP: 100%; LEFT: 10px
+}
+#slider .diapo {
+	POSITION: absolute; FILTER: alpha(opacity=100); VISIBILITY: visible; opacity: 1
+}
+.pagenext {
+	POSITION: relative; WIDTH: 820px; HEIGHT: 37px
+}
+.slider-hover-text{
+	position:relative;
+	top:50%;
+	left:50%;
+	z-index:11;
+}	

@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+.banner{
+	background:url("images/test-bg.png");
+	border-left:1px solid rgb(215,215,215);
+	border-right:1px solid rgb(215,215,215);
+	padding:30px 15px 30px;
+}
+/* 专栏 */
+.feature-package{
+	overflow: hidden;
+  	border-left: 1px solid rgb(215,215,215);
+  	border-right: 1px solid rgb(215,215,215);
+	padding:40px 15px 30px 15px;
+}
+.feature-item{
+	margin-right: 40px;
+}
+.feature-topics a {
+  	font-size: 14px;
+  	color: rgb(63,158,214);
+  	text-align: justify;
+  	width:200px;
+}
+.vitical-divider{
+  	width: 5px;
+  	height: 15px;
+  	background: rgb(63,158,214);
+  	margin-right: 8px;
+  	margin-top: 3px;
+}
+.feature-topics li{
+	margin-bottom:4px;
+}
+.feature-title{
+	margin-bottom:6px;
+}
+.feature-name{
+	font-size: 15px;
+}
+.feature-topics{
+	margin-top:6px;
+}
+

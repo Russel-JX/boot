@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BootStrap 组件</title>
+	 <link href="css/bootstrap.css" rel="stylesheet">
+	 <link href="css/bootstrap-theme.css" rel="stylesheet">
+
+</head>
+<body>
+	<span class="glyphicon glyphicon-search"></span>
+	<button type="button" class="btn btn-default btn-lg">
+		<span class="glyphicon glyphicon-star"></span> Star
+	</button>
+	
+	
+	
+	<div class="page-header">
+		<h1>按钮组 btn-group</h1>
+	</div>
+	<div class="btn-group">
+		<button type="button" class="btn btn-default">Left</button>
+		<button type="button" class="btn btn-default">Middle</button>
+		<button type="button" class="btn btn-default">Right</button>
+	</div>
+	<h3>按钮下拉 </h3>
+	<!-- Single button -->
+	<div class="btn-group">
+		<button type="button" class="btn btn-default dropdown-toggle"
+			data-toggle="dropdown">
+			Action <span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="#">Action</a></li>
+			<li><a href="#">Another action</a></li>
+			<li><a href="#">Something else here</a></li>
+			<li class="divider"></li>
+			<li><a href="#">Separated link</a></li>
+		</ul>
+	</div>
+	<div class="page-header">
+		<h1>输入框  input-group</h1>
+	</div>
+	<div class="input-group">
+		<span class="input-group-addon">@</span> <input type="text"
+			class="form-control" placeholder="Username">
+	</div>
+	<div class="input-group">
+		<input type="text" class="form-control"> <span
+			class="input-group-addon">.00</span>
+	</div>
+	<div class="input-group">
+		<span class="input-group-addon">$</span> <input type="text"
+			class="form-control"> <span class="input-group-addon">.00</span>
+	</div>
+
+	<div class="page-header">
+		<h1>导航条 navbar</h1>
+	</div>
+	
+	<div class="navbar navbar-inverse"><!-- navbar-default navbar-fixed-top navbar-fixed-bottom navbar-static-top navbar-static-bottom -->
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#brand" id="brand">Brand</a>
+		</div>
+		<p class="navbar-text">This is our brand</p>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li class="active"><a id="link1" href="#link1">Link1</a></li>
+				<li><a id="link2" href="#link2">Link2</a></li>
+				<li class="dropup" >
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						DropMedown 
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a id="a" href="#a">A</a></li>
+						<li><a id="b" href="#b">B</a></li>
+						<li><a id="c" href="#c">C</a></li>
+						<li class="divider"></li>
+						<li><a id="d" href="#d">D</a></li>
+						<li><a id="e" href="#e">E</a></li>
+					</ul>
+				</li>
+			</ul>
+			<form class="navbar-form navbar-left">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Search Here"  />
+				</div>
+				<button type="submit" class="btn btn-default">Submit</button>
+			</form>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#link" id="link">Link</a></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="#action" id="action">Action</a></li>
+						<li><a href="#">Another action</a></li>
+						<li><a href="#">Something else here</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Separated link</a></li>
+					</ul></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#gotosomewhere" id="gotosomewhere">gotosomewhere</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="page-header">
+		<h1>面包屑导航 breadcrumb</h1>
+	</div>
+	<ol class="breadcrumb">
+		<li><a href="#myWebsite" id="myWebsite">我的网站</a></li>
+		<li><a href="#manage" id="manage">管理</a></li>
+		<li><a class="active" href="#performance" id="performance">绩效管理</a></li>
+	</ol>
+	
+	<div class="page-header">
+		<h1>分页 pagination</h1>
+	</div>
+	<h3>普通分页</h3>
+	<ul class="pagination pagination-lg"><!-- pagination-lg pagination-sm -->
+		<li class="disabled"><a href="#pre" id="pageOne">&laquo;</a></li>
+		<li class="active"><a href="#pageOne" id="pageOne">1</a></li>
+		<li><a href="#pageTwo" id="pageTwo">2</a></li>
+		<li><a href="#pageThree" id="pageThree">3</a></li>
+		<li><a href="#pageFour" id="pageFour">4</a></li>
+		<li><a href="#pageFive" id="pageFive">5</a></li>
+		<li><a href="#next" id="next">&raquo;</a></li>
+	</ul>
+	<h3>翻页</h3>
+	<ul class="pager">
+	  	<li ><a href="#">Previous</a></li>
+	  	<li><a href="#">Next</a></li>
+	</ul>
+	<ul class="pager">
+	  	<li class="previous disabled"><a href="#">&larr; Older</a></li>
+	  	<li class="next"><a href="#">Newer &rarr;</a></li>
+	</ul>
+	
+	<div class="page-header">
+		<h1>标签 label</h1>
+	</div>
+	<div class="label label-default">default</div>
+	<div class="label label-primary">primary</div>
+	<div class="label label-success">success</div>
+	<div class="label label-info">info</div>
+	<div class="label label-warning">warning</div>
+	<div class="label label-danger">danger</div>
+	<h3><span class="label label-success">success</span></h3>
+
+	<div class="page-header">
+		<h1>徽章 badge</h1>
+	</div>
+	<a>a link <span class="badge">23</span></a>
+	<ul class="nav nav-pills">
+		<li class="active"><a href="#home" id="home">Home <span
+				class="badge">42</span></a></li>
+		<li><a href="#profile" id="profile">Profile</a></li>
+		<li><a href="#messages" id="messages">Messages <span
+				class="badge">3</span></a></li>
+	</ul>
+	<br>
+	<ul class="nav nav-pills nav-stacked" style="max-width: 260px;">
+		<li class="active"><a href="#file" id="file"> <span
+				class="badge pull-right">42</span> File
+		</a></li>
+		<li><a href="#edit" id="edit">Edit</a></li>
+		<li><a href="#view" id="view"> <span class="badge pull-right">3</span>
+				View
+		</a></li>
+	</ul>
+
+	<div class="page-header">
+		<h1>大屏幕介绍 jumbotron</h1>
+	</div>
+	<div class="jumbotron">
+		<div class="container">
+			<h1>Hello,World!</h1>
+			<p>这是一个神奇的网站！</p>
+			<div class="btn-group">
+				<button type="button" class="btn btn-primary btn-lg">Learn
+					More</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="page-header">
+		<h1>缩略图 thumbnail</h1>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-6 col-md-3">
+			<a href="#thumbnail" id="thumbnail" class="thumbnail"> <img
+				data-src="holder.js/100%x180" alt="...">
+			</a>
+		</div>
+		<div class="col-sm-6 col-md-3">
+			<a href="#thumbnail" id="thumbnail" class="thumbnail"> <img
+				data-src="holder.js/100%x180" alt="...">
+			</a>
+		</div>
+		<div class="col-sm-6 col-md-3">
+			<a href="#thumbnail" id="thumbnail" class="thumbnail"> <img
+				data-src="holder.js/100%x180" alt="...">
+			</a>
+		</div>
+		<div class="col-sm-6 col-md-3">
+			<a href="#thumbnail" id="thumbnail" class="thumbnail"> <img
+				data-src="holder.js/100%x180" alt="...">
+			</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img data-src="holder.js/300x200" alt="...">
+				<div class="caption">
+					<h3>Thumbnail label</h3>
+					<p>...</p>
+					<p>
+						<a href="#button" id="button1" class="btn btn-primary" role="button">Button1</a> <a
+							href="#button" id="button2" class="btn btn-default" role="button">Button2</a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img data-src="holder.js/300x200" alt="...">
+				<div class="caption">
+					<h3>Thumbnail label</h3>
+					<p>...</p>
+					<p>
+						<a href="#button3" id="button3" class="btn btn-primary" role="button">Button3</a> <a
+							href="#button4" id="button4" class="btn btn-default" role="button">Button4</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="page-header">
+		<h1>提示/警告框 alert</h1>
+	</div>
+	<div class="alert alert-success">
+		Process <strong>Success!</strong>
+	</div>
+	<div class="alert alert-info">
+		Process <strong>info!</strong>
+	</div>
+	<div class="alert alert-warning">
+		Process <strong>warning!</strong>
+	</div>
+	<div class="alert alert-danger  alert-dismissable">
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+		Process <strong>danger!</strong>Pls check <a class="alert-link" href="#here" id="here">here</a>!
+	</div>
+	
+	<div class="page-header">
+		<h1>进度条 progress</h1>
+	</div>
+	<div class="progress">
+		<div class="progress-bar progress-bar-warning" style="width:60%;">
+			<span class="src-only">60% Complete</span>
+		</div>
+		<div class="progress-bar progress-bar-error" style="width:20%;">
+			<span class="src-only">20% Complete</span>
+		</div>
+	</div>
+	<div class="progress progress-striped">
+		<div class="progress-bar progress-bar-info" style="width:60%;">
+			<span class="src-only">60% Complete</span>
+		</div>
+	</div>
+	<div class="progress progress-striped active">
+		<div class="progress-bar progress-bar-info" style="width:60%;">
+			<span class="src-only">60% Complete</span>
+		</div>
+	</div>
+
+	<div class="page-header">
+		<h1>媒体列表 media</h1>
+	</div>
+	<div class="media">
+		<a class="pull-left" href="#"> <img class="media-object"
+			data-src="holder.js/64x64" alt="Generic placeholder image">
+		</a>
+		<div class="media-body">
+			<h4 class="media-heading">Media heading</h4>
+			Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
+			scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in
+			vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+			vulputate fringilla. Donec lacinia congue felis in faucibus.
+		</div>
+	</div>
+	<div class="media">
+		<a class="pull-left" href="#"> <img class="media-object"
+			data-src="holder.js/64x64" alt="Generic placeholder image">
+		</a>
+		<div class="media-body">
+			<h4 class="media-heading">Media heading</h4>
+			Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
+			scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in
+			vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+			vulputate fringilla. Donec lacinia congue felis in faucibus.
+			<div class="media">
+				<a class="pull-left" href="#"> <img class="media-object"
+					data-src="holder.js/64x64" alt="Generic placeholder image">
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading">Nested media heading</h4>
+					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
+					scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum
+					in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+					nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="page-header">
+		<h1>列表组 list-group</h1>
+	</div>
+	<div class="list-group" style="width:40%;" title="列表中可以放任意html元素">
+		<a class="list-group-item" href="#t0" id="t0">Hi,there!</a>
+		<a class="list-group-item active"  href="#t1" id="t1">
+			<h4 class="list-group-item-heading">this is title1</h4>
+			<p class="list-group-item-text">sdffwefwefwefwefwefwefwe fwefwef fjioj jojwef jopjfw jojfwe jokfe ksdf wefwef wefef </p>
+		</a>
+		<a class="list-group-item" href="#t3" id="t3">Nice to meet you!<span class="badge">smile</span></a>
+	</div>
+	
+	<div class="page-header">
+		<h1>面板 panel</h1>
+	</div>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">Panel title</h3>
+		</div>
+		<div class="panel-body">Panel content</div>
+		<div class="panel-footer">Panel footer</div>
+	</div>
+	<h3>带表格的面板</h3>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">Panel title</h3>
+		</div>
+		<div class="panel-body">
+			Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. 
+			Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<td>#</td>
+					<td>First Name</td>
+					<td>Last Name</td>
+					<td>Username</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>Jack</td>
+					<td>Bob</td>
+					<td>JB</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Rose</td>
+					<td>Mary</td>
+					<td>RM</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>Tim</td>
+					<td>Scott</td>
+					<td>TS</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="panel-footer">Panel footer</div>
+	</div>
+	<h3>带列表组的面板</h3>
+	<div class="panel panel-warning">
+		<!-- Default panel contents -->
+		<div class="panel-heading">Panel heading</div>
+		<div class="panel-body">
+			<p>...</p>
+		</div>
+		<!-- List group -->
+		<ul class="list-group">
+			<li class="list-group-item">Cras justo odio</li>
+			<li class="list-group-item">Dapibus ac facilisis in</li>
+			<li class="list-group-item">Morbi leo risus</li>
+			<li class="list-group-item">Porta ac consectetur ac</li>
+			<li class="list-group-item">Vestibulum at eros</li>
+		</ul>
+	</div>
+	
+	<div class="page-header" title="把Well用在元素上，能有嵌入(inset)的的简单效果"> 
+		<h1>well</h1>
+	</div>
+	<div class="well well-lg" style="width:60%;">Look, I'm in a well!</div>
+
+
+	<br/><br/><br/><br/><br/>
+	<script src="js/jquery1.10.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/holder.js"></script>
+	<script src="js/application.js"></script>
+</body>
+</html>

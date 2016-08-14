@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>闭包</title>
+
+	<script type="text/javascript" src="../js/jquery1.10.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+				
+			
+			
+			var btn = $(".a");
+			for(var i=0;i<btn.length;i++){
+				/**这是一个闭包**
+				每一个匿名函数（这里是数组的元素）都保存着外层函数的活动对象，所以他们引用的都是同一个i.
+				当createFunctions()函数返回后，i变成10，每个匿名函数都引用保存变量i的同一个变量对象.
+				因为闭包保存的是整个变量对象，而不是某个特殊的变量。
+			*/
+				btn[i].onclick = function(){
+					console.log("这个按钮的内容是："+i);//输出都是4
+				};
+				
+			}
+			
+			var btn2 = $(".b");
+			for(var j=0;j<btn2.length;j++){
+				/*
+				定义了一个匿名函数，并立即执行匿名函数的机过赋给数组，
+				这里匿名函数有一个参数num，也就是最终的函数要返回的值。
+				在调用每个函数时我们传入变量i。由于函数参数是按值传递的，所以就会将变量i的当前值赋值给参数num。
+				而在这个匿名函数内部，又创建并返回了一个访问num的闭包，
+				这样一来arr数组中的每个函数都有自己num变量的一个副本，因此就可以返回各自不同的数值了。
+				*/
+				btn2[j].onclick = function(num){
+					return function(){console.log("换一种方式  这个按钮的内容是："+num);};//输出都是:0，1,2,3
+				}(j);
+				
+			}
+			
+			/*
+				this关键字
+				闭包中this指代最外层的函数或对象
+			*/
+			var name="name in window  scope";
+			var obj = {
+					name:"name in obj",
+					getName:function(){
+						console.log("this.name="+this.name);
+					}
+			};
+			obj.getName();//输出“name in obj”
+			
+			
+			
+		});
+	</script>
+
+</head>
+<body>
+	<h3>**闭包中this指代最外层的函数或对象**</h3>
+	<h3>闭包是指有权访问另一个函数作用域中的变量的函数，但作用域的配置机制有一个需要注意的地方，即闭包只能取得包含函数中任何变量的最后一个值。</h3>
+	<h3>闭包允许内层函数引用父函数中的变量，但是该变量是最终值</h3>
+	<button class="a">button1</button>
+	<button class="a">button2</button>
+	<button class="a">button3</button>
+	<button class="a">button4</button><br>
+	
+	<button class="b">button5</button>
+	<button class="b">button6</button>
+	<button class="b">button7</button>
+	<button class="b">button8</button>
+	
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>表单验证</title>
+
+	<link href="../css/bootstrap.css" rel="stylesheet" />
+	<script src="../js/jquery1.10.js" type="text/javascript"></script>
+	<script src="../js/jquery.validate.min.js" type="text/javascript"></script>
+	<script src="../js/messages_zh.js" type="text/javascript"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#vali-form").validate({
+				//根据元素的name属性值验证
+				rules:{
+					username:"required",
+					password:{
+						required:true,
+						minlength:6
+					},
+					password2:{
+						required:true,
+						minlength:6,
+						equalTo:"#password"
+					},
+					email:"email",
+					gender:"required",
+					hobby:"required",
+					address:"required"
+				},
+				messages:{
+					username:"请输入用户名",
+					password:{
+						required:"请输入密码",
+						minlength:"密码长度必须超过5"
+					},
+					password2:{
+						required:"请输入确认密码",
+						minlength:"密码长度必须超过5",
+						equalTo:"两次输入的密码不一致"
+					},
+					gender:"请选择性别"
+					
+				}
+				
+				
+			});
+		});
+	</script>
+
+</head>
+<body>
+	<h3>http://www.cnblogs.com/hejunrex/archive/2011/11/17/2252193.html</h3>
+	<h3>使用$("...").validate();开启验证功能</h3>
+	<h3>**所有的配置项，既可以在js中配置；也能在元素中 作为属性配置**</h3>
+	<div class="container">
+		<form id="vali-form" action="#" role="form">
+			<div class="row">
+				<div class="form-group col-md-6">
+					<label  for="username">用户名</label>
+					<input type="text" id="username" name="username" class="form-control"/>
+				</div>
+				<div class="form-group col-md-6">
+					<label  for="password">密码</label>
+					<input type="password" id="password" name="password" class="form-control"/>
+				</div>
+				<div class="form-group col-md-6">
+					<label  for="password2">密码确认</label>
+					<input type="password" id="password2" name="password2" class="form-control"/>
+				</div>
+				<div class="form-group col-md-6">
+					<label  for="email">邮箱地址</label>
+					<input type="text" id="email" name="email" class="form-control"/>
+				</div>
+				<div class="form-group col-md-6">
+					<label  for="gender">性别</label>
+					<div class="form-control">
+						<div class="form-group col-md-3">
+							<label><input type="radio" name="gender" id="gender" value="male"/> 男</label>
+						</div>
+						<div class="form-group col-md-9">
+							<label><input type="radio" name="gender" id="gender" value="female"/> 女</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="name">默认的复选框和单选按钮的实例</label>
+					<div class="form-group checkbox">
+					   <label><input type="checkbox" value="">选项 1</label>
+					    <label><input type="checkbox" value="">选项 2</label>
+					</div>
+				</div>
+				<div class="form-group col-md-6">
+					 <label for="name">选择列表</label>
+				      <select name="hobby" id="hobby" class="form-control">
+				         <option>足球</option>
+				         <option>篮球</option>
+				         <option>游泳</option>
+				         <option>乒乓球</option>
+				         <option>健身</option>
+				      </select>
+			    </div>
+				<div class="form-group col-md-6">
+			      <label for="name">可多选的选择列表</label>
+			      <select name="address" id="address" multiple class="form-control">
+			         <option>1</option>
+			         <option>2</option>
+			         <option>3</option>
+			         <option>4</option>
+			         <option>5</option>
+			      </select>
+			     </div>
+			     
+			     <!-- 直接在元素上加属性验证 -->
+			     <div class="form-group col-md-6">
+					<label  for="email2">邮箱地址2</label>
+					<input type="text" id="email2" name="email2" class="form-control required email" />
+				</div>
+				 <div class="form-group col-md-6">
+					<label  for="url">url</label>
+					<input type="text" id="url" name="url" class="form-control url" />
+				</div>
+				 <div class="form-group col-md-6">
+					<label  for="date">日期</label>
+					<input type="text" id="date" name="date" class="form-control date" required />
+				</div>
+				 <div class="form-group col-md-6">
+					<label  for="length">长度限制</label>
+					<input type="text" id="length" name="length" class="form-control" minlength="3" maxlength="10" required />
+				</div>
+				<div class="form-group col-md-6">
+					<label  for="range">范围限制</label>
+					<input type="text" id="range" name="range" class="form-control" range="100 300" required /><!-- 只能是数字 -->
+				</div>
+			</div>
+			<input type="submit" class="btn btn-info" value="提交" />
+		</form>
+	</div>
+
+</body>
+</html>

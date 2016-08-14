@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>原型 - prototype 详解</title>
+
+	<script type="text/javascript" src="../js/jquery1.10.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//一个对象的原型（prototype）===其构造函数中的原型属性(对象.constructor.prototype)===Object.getPrototypeOf(对象)===对象.__proto__(IE中不可用)
+			var b={};
+			console.log(Object.getPrototypeOf(b)===b.constructor.prototype&&b.constructor.prototype===b.__proto__);
+			
+			//***原型用在继承中，使次对象有其他对象的属性
+			var c={};
+			console.log("对象c的未继承前长度是："+c.length);//undefined.未继承前没有length属性
+			c.__proto__=Array.prototype;//通过原型的赋值，来继承Array对象的所有属性
+			console.log("对象集成后c的长度是："+c.length);
+			
+			console.log(Math+"=="+Math.prototype);
+			
+			/*
+			任何函数都有一个原型属性，构造函数也不例外。所以通过函数    对象.prototype  获取原型。
+			注：*********这里说的每个函数的原型属性，与上面的任何非主数据类型的对象的原型根本不是一个概念。虽然函数也是主数据类型的对象，但两者概念不同获取的方式也不同********
+			*/
+			var Meth = function(name){//定义一个构造函数（其实也是定义一个对象）
+				this.name = name;
+			}
+			console.log("构造函数的原型属性和此函数对象的原型一样吗? "+(Meth.prototype===Meth.constructor.prototype));//false
+			//console.log(Object.getPrototypeOf(Meth)===Meth.constructor.prototype&&Meth.constructor.prototype===Meth.__proto__);
+			
+			var m1 = new Meth("Jack");
+			var m2 = new Meth("Rose");
+			console.log("m1.name="+m1.name+"--m2.name="+m2.name);
+			//***构造函数的实例对象的原型都相同，只有这样所有实例才能有共同的属性（反证法），这也是构造函数的意义所在。
+			console.log("构造函数的实例对象的原型是否相同呢？ "+(m1.__proto__===m2.__proto__&&m1.__proto__===Meth.prototype));//true.
+			
+			/* var A = function(name) {
+			    this.name = name;
+			 }   
+			var a = new A('alpha');
+			alert(a.name); //'alpha'   
+			A.prototype.x = 23;  
+			a.x = 90;
+			alert(a.x+"--"+A.prototype.x); //23 */
+			
+			/*
+				prototype还可以为函数提供新的属性。
+				address为构造函数的新的属性，次函数的所有实例都有此属性。
+				实例对象myAge的原型(myAge.__proto__)是对函数Age的原型属性(Age.prototype)的引用，所以如果修改的是Age的原型属性，
+
+				改变将影响由Age创建的对象实例myAge，但是对函数A的原型进行了修改，但是并没有反应到A所创建的实例a中
+			*/
+			var Age = function (age){
+				this.age = age
+			}
+			Age.prototype.address = "Suzhou";
+			var myAge = new Age(24);
+			console.log(myAge.address);//Suzhou.
+			
+			/*
+				构造函数的constructor属性等于构造函数本身
+			*/
+			var A = function() {};
+			console.log("构造函数的constructor属性等于构造函数本身"+A.prototype.constructor===A); //true
+			console.log(A.constructor.prototype===A); //false
+			var a = new A();
+			//实例的constructor属性等于构造函数本身
+			console.log("实例的constructor属性等于构造函数本身"+(a.constructor===A)); //true 
+			
+			/*
+				原型链
+				原型的继承机制是发生在内部且是隐式的.当想要获得一个对象a的属性foo的值，javascript会在原型链中查找foo的存在，如果找到则返回foo的值，否则undefined被返回。
+			*/
+			a.__proto__ = b; 
+			b.__proto__ = c; 
+			c.__proto__ = {}; //default object 
+			console.log({}.__proto__.__proto__); //null
+			
+			
+		});
+	</script>
+
+</head>
+<body>
+
+	<h3>JavaScript 是基于原型的编程语言，原型用来区别类和实例，这里提到一个概念：原型
+对象（prototypical object）。原型是一个“模板”对象，它上面的属性被用做初始化一个
+新对象。任何对象都可以作为另一个对象的原型对象，以此来共享属性。实际上，可以
+将其理解为某种形式的继承。
+</h3>
+<h3>当你读取一个对象的属性时，JavaScript 首先会在本地对象中查找这个属性，如果没有
+找到，JavaScript 开始在对象的原型中查找，若还未找到还会继续查找原型的原型，直
+到查找到Object.prototype。如果找到这个属性，则返回这个值，否则返回undefined。</h3>
+<h3>换句话说，如果你给Array.prototype 添加了属性，那么所有的JavaScript 数组都具有
+了这些属性。</h3>
+
+	<font color="red" size="16">js中，给对象添加静态属性和静态方法
+类名.方法名 = 方法实现；
+类名.属性名 = 属性值；
+类名.extend({
+属性1：属性1值， 
+
+
+给对象添加非静态属性和方法
+类名.prototype.方法名 = 方法实现；
+类名.prototype.属性名 = 属性值；</font>
+	所有的对象在默认的情况下都有一个原型，因为原型本身也是对象，所以每个原型自身又有一个原型<br>
+	在javascript中，一个对象就是任何无序键值对的集合,如果它不是一个主数据类型(undefined，null，boolean，number，or string)，那它就是一个对象<br>
+	获取js对象原型的方法：
+	<ul>
+		<li>Object.getPrototypeOf(对象)</li>
+		<li>对象.constructor.prototype</li>
+		<li>对象._proto_(IE中不可用)</li>
+	</ul>
+	prototype还可以为函数提供新的属性。
+</body>
+</html>

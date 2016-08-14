@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>事件顺序</title>
+	<link href="../css/bootstrap.css" rel="stylesheet" />
+	<script type="text/javascript" src="../js/jquery1.10.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			/*
+				jquery的on方法，为事件冒泡（bubbling）
+				点击“儿子”区域时，先触发“儿子”，在触发“父亲；点击“父亲”区域，只触发“父亲”
+			*/
+			$("#father").on("click",function(e){
+				console.log("父亲"+e.target.id);
+			});
+			$("#son").on("click",function(e){
+				console.log("儿子"+e.currentTarget.id);
+			});
+			
+			/*
+				ele.addEventListener("click",listener,false/true);
+				最后一个参数是true，事件处理程序以捕捉模式触发；如果是false，事件处理程序以冒泡模式触发
+			*/
+			/*
+				原生js绑定事件，事件冒泡（bubbling）
+			*/
+			var listener =function(e){
+				console.log(e.target.id);
+			};
+			var father2 = document.getElementById("father2");
+			var son2 = document.getElementById("son2");
+			father2.addEventListener("click",listener,true);//点击外层，显示“father2”
+			son2.addEventListener("click",listener,true);//点击内层，显示2个“son2”。因为从内向外触发了2次，
+		
+			/*
+				原生js绑定事件，事件捕获（capturing）
+			*/
+			var father3 = document.getElementById("father3");
+			var son3 = document.getElementById("son3");
+			father3.addEventListener("click",listener,false);
+			son3.addEventListener("click",listener,false);
+			
+			/*
+				e.stopProgation();取消事件的传递
+			*/
+			var father4 = document.getElementById("father4");
+			var son4 = document.getElementById("son4");
+			father4.addEventListener("click",function(e){console.log(e.target.id);},false);
+			son4.addEventListener("click",function(e){e.stopPropagation(); console.log(e.target.id);},false);//此时点击“儿子”时，只执行儿子的回调，父亲的回调将不会执行
+			
+			/*
+				preventDefault()阻止浏览器的默认行为
+				浏览器同样给事件赋予了默认行为。比如，当你点击一个链接时，浏览器的默认行为是
+				载入新页面，当点击一个复选框时，浏览器会将其选中（或取消选中）。在事件传播阶段（之
+				后）会触发这些默认行为，在任何一个事件处理程序中都可以阻止默认行为。可以通过
+				调用event 对象的preventDefault() 函数来阻止默认行为，同样也可以通过在回调中返
+				回false 来实现同样的效果
+			*/
+			$("#stop").on("click",function(e){
+				e.preventDefault();
+				alert("我阻止了访问百度");
+				//return false;//返回false也能阻止浏览器的默认行为
+			});
+			
+		});
+	</script>
+	<style type="text/css">
+		.father{
+			border:2px solid yellow;
+			height:100px;
+			width:100px;
+		}
+		.son{
+			border:2px solid blue;
+			height:50px;
+			width:50px;
+		}
+	</style>
+
+</head>
+<body>
+	<h3>Netscape 4 支持事件捕捉（capturing），从顶层的父节点开始触发事件，从外到内传播。</h3>
+	<h3>微软则支持事件冒泡（bubbling），从最内层的节点开始触发事件，逐级冒泡直到顶层节点，从内向外传播。</h3>
+	<div class="label label-danger">不管是事件捕捉还是事件冒泡，e.target所指代的都是被点击的那个元素或子元素，并且一直都是。<br>要得到当前传递到的元素请使用e.currentTarget</div>
+	<ul>
+		<li>currentTarget ：
+事件冒泡阶段所在的当前DOM 元素。</li>
+		<li>target,originalTarget ：
+原始的DOM 元素。</li>
+		<li>relatedTarget ：
+其他和事件相关的DOM 元素（如果有的话）。</li>
+	</ul>
+	<font color="red" size="6">如果元素有浏览器默认行文，绑定事件后，将先执行事件，再执行默认器默认行为。可通过e.stopProparation(),或return false阻止，默认行为</font>
+	
+
+
+	
+	<div class="father" id="father">
+		father
+		<div class="son" id="son">son</div>
+	</div>
+	<div class="father" id="father2">
+		father2
+		<div class="son" id="son2">son2</div>
+	</div>
+	<div class="father" id="father3">
+		father3
+		<div class="son" id="son3">son3</div>
+	</div>
+	<div class="father" id="father4">
+		father4 停止事件向父级传递
+		<div class="son" id="son4">son4</div>
+	</div>
+	<a href="http://www.baidu.com">访问百度</a><br>
+	<a href="http://www.baidu.com" id="stop">访问百度,preventDefault()阻止浏览器的默认行为</a>
+	
+	<h3>event 对象还包含很多有用的属性</h3>
+	<ul>
+		<li>bubbles ：布尔值，表示事件是否通过DOM 以冒泡形式触发。</li>
+		<li>button ：
+表示（如果有）鼠标所按下的按钮。</li>
+		<li>ctrlKey ：
+布尔值，表示Ctrl 键是否按下。</li>
+		<li>altKey ：
+布尔值，表示Alt 键是否按下。</li>
+		<li>shiftKey ：
+布尔值，表示Shift 键是否按下。</li>
+		<li>metaKey ：
+布尔值，表示Meta 键注1 是否按下。</li>
+		<li>...</li>
+		<li>...</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF8">
+<title>$().outrHeight()</title>
+	<!-- 选项卡图标 -->
+	<link  rel="shortcut icon" href="../images/logo.ico"  type="image/x-icon"/>
+	<script src="../js/jquery1.10.js" type="text/javascript"></script>
+	
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var p = $("p:last");
+				p.html(p.outerHeight()+"|"+p.outerHeight(true));
+			});
+		</script>
+</head>
+<body>
+	<h3>获取第一个匹配元素外部高度（默认包括补白padding和边框border）。此方法对可见和隐藏元素均有效。optionsBoolean默认值:'false'V1.2.6
+
+设置为 true 时，计算边距margin在内。
+	
+	</h3>
+	<p>Hello World!</p><p>Hi Wall E!</p>
+	
+
+	
+</body>
+</html>

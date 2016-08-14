@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF8">
+<title>自定义弹出框位置</title>
+	<!-- 选项卡图标 -->
+	<link  rel="shortcut icon" href="../images/logo.ico"  type="image/x-icon"/>
+	
+	<link rel="stylesheet" href="../css/my/base.css">
+	<link rel="stylesheet" href="../css/my/2012.css">
+	
+	<script src="../js/jquery1.10.js" type="text/javascript"></script>
+	
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//删除弹出层
+				$("[id^='remove-']").unbind().bind("click", function(event){
+					event.preventDefault();
+					var o = $(this).offset();
+					
+					//删除弹出框的左上定点的位置
+					var t = o.top + $(this).outerHeight() + 3;
+					var l = o.left + $(this).width() - $("#cart-delete-dialog").width();
+
+					if($(this).attr("id")=="remove-batch"){//批量删除
+						$(".cart-delete").html("确定从购物车中删除所有选中商品？");
+						l = o.left;
+					}
+					else{
+						if($(this).attr("selectstate")=="1"){
+							$(".cart-delete").html("删除后，其它商品不享受套装优惠，确定从购物车中删除此商品？");
+						}
+						else{
+							$(".cart-delete").html("确定从购物车中删除此商品？");
+						}
+					}
+
+					$("#cart-delete-dialog").css({
+						"display": "block",
+						"top": t,
+						"left": l,
+						"z-index": 1000
+					});
+
+					$("#btnRemoveConfirm").attr("data-bind",$(this).attr("id"));
+					$("#btnRemoveConfirm").attr("data-name",$(this).attr("data-name"));
+					$("#btnRemoveConfirm").attr("data-more",$(this).attr("data-more"));
+					$("#btnRemoveConfirm").attr("selectstate",$(this).attr("selectstate"));
+				});
+			});
+		</script>
+</head>
+<body>
+	<br><br>
+	<div style="padding-left:500px;">
+	<div class="cell p-remove"><a class="cart-remove" id="remove-1152664-1" href="javascript:void(0);" clstag="clickcart|keycount|xincart|btndel318558" data-more="removed-398.00-1" data-name="【京东自营【全国多数城市上门安装】博世（...">删除</a>
+	</div>
+
+	<div class="dialog" id="cart-delete-dialog" style="left: 879px; top: 249px; display: none; z-index: 1000;">
+	<div class="dialog-outer" style="">
+		<span class="dialog-bg dialog-bg-n"></span>
+		<span class="dialog-bg dialog-bg-ne"></span>
+
+		<span class="dialog-bg dialog-bg-e"></span>
+		<span class="dialog-bg dialog-bg-se"></span>
+		<span class="dialog-bg dialog-bg-s"></span>
+		<span class="dialog-bg dialog-bg-sw"></span>
+		<span class="dialog-bg dialog-bg-w"></span>
+		<span class="dialog-bg dialog-bg-nw"></span>
+		<div class="dialog-inner">
+			<div class="dialog-toolbar clearfix">
+				<a title="关闭" class="dialog-close" href="javascript:void(0);">关闭</a>
+
+				<h3 class="dialog-title">删除商品</h3>
+			</div>
+			<div class="dialog-content">
+				<div class="cart-delete">确定从购物车中删除此商品？</div>
+				<div class="btns clearfix">
+					<a class="btn btn-ok" id="btnRemoveConfirm" href="javascript:void(0);" selectstate="" data-show="" data-bind="remove-563005-1" data-more="removed-119.00-1" data-name="【京东自营】德国曼牌滤清器CUK2043 Adsoto..."><span class="btn-text">确定</span></a>
+					<a class="btn btn-cancel" id="btnRemoveCancel" href="javascript:void(0);"><span class="btn-text">取消</span></a>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+	
+</body>
+</html>

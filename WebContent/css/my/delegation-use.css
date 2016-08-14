@@ -1,0 +1,44 @@
+* {
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+
+ul {
+	width: 400px;
+	height: 30px;
+	background-color: #CCCCCC;
+	margin: 0;
+}
+
+ul li {
+	display: block;
+	list-style: none;
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	width: 80px;
+}
+
+ul li.liItem {
+	background-color: #996666;
+	color: #FFFFFF;
+}
+
+ul li.liItem_ {
+	background-color: #CCCCCC;
+	color: #000000;
+}
+
+.tabItem {
+	width: 400px;
+	height: 200px;
+	background-color: #996666;
+}
+
+.tabItem_ {
+	width: 400px;
+	height: 200px;
+	background-color: #996666;
+	display: none;
+}

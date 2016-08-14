@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>modal js</title>
+	<link href="css/bootstrap.css" rel="stylesheet" />
+	<script src="js/jquery1.10.js" type="text/javascript"></script>
+	
+	<style type="text/css">
+		/* .mymodal-postion{
+			width:500px;
+			top:0;
+			left:400px;
+		} */
+	</style>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".btn-logoff").unbind().on("click",function(){//[class^='btn-logoff-']
+				//alert(6);
+				//获取按钮的位置
+				var thisBtn = $(this);
+				var t = thisBtn.offset()+thisBtn.height();
+				var l = thisBtn.outerWidth+thisBtn.width-$("#self-modal").width();
+				alert(t);
+				$(".mymodal-postion").css({
+					//"width":400px,
+					"top":0,
+					"left":100
+				});
+			
+			
+				$("#self-modal").modal({
+					"show":true
+				});
+			});
+		});
+	</script>
+	
+</head>
+<body>
+	<!-- 各种位置的按钮	开始 -->
+	<button id="btn1" type="button"  class="btn btn-primary btn-logoff"  >注销</button>
+	<!-- 各种位置的按钮	结束 -->
+	<!-- modal跟随 点击的元素弹出	开始 -->
+	<div id="self-modal" class="modal fade"  tabindex="-1">
+		<div class="modal-dialog mymodal-postion">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">注销</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body text-center">
+					<h3></h3>
+				</div>
+				<div class="modal-footer">
+					<p>您将退出本系统</p>
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary">确定</button>
+				</div>
+			</div>		
+		</div>
+	</div>
+	<!-- modal跟随 点击的元素弹出	结束 -->
+
+
+	<div class="page-header">
+		<h1>Modal Dialog</h1>
+	</div>
+	<h3>use 'data-xxx' attribute</h3>
+	<button type="button" title="To enable 'Esc'key to dismiss,must use tabindex attribute " class="btn btn-primary btn-lg" data-toggle="modal"  data-target="#alertOut" >Pop alert out by 'data-xxx' attributes</button>
+	<div id="alertOut" class="modal fade"  tabindex="-1"  title="fade hide show样式指定对话框的出现效果分别是：渐进、隐藏、显示。" >
+		<div class="modal-dialog mymodal-postion">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Alert</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">
+					<p>Are you sure to change!</p>
+				</div>
+				<div class="modal-footer">
+					<p>This is modal-footer.</p>
+					<button id="cls" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save Changes</button>
+				</div>
+			</div>		
+		</div>
+	</div>
+	
+	<h3>use js</h3>
+	<button type="button" id="btn-js" class="btn btn-primary btn-lg">Pop alert out by js</button>
+	<div id="alertOut2" class="modal fade"   tabindex="-1" >
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">I'm Alert NO.2</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">
+					<p>Are you sure to change!</p>
+				</div>
+				<div class="modal-footer">
+					<p>This is modal-footer.</p>
+					<button id="cls2" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save Changes</button>
+				</div>
+			</div>		
+		</div>
+	</div>
+	<script type="text/javascript">
+		$("#btn-js").click(function(e){
+			$("#alertOut2").modal({
+				'backdrop':'static',//'static' or false:click outside the dialog can't dismiss the dialog;true:....
+				'keyboard':true,//enable 'Esc' key to dismiss dialog
+				'show':true
+			});//or
+			//$("#alertOut2").modal('show');
+		});
+	</script>
+	
+	<h3>href attribute:dialog's content comes from another page</h3>
+	<button type="button" href="dialogContent.html" data-toggle="modal" data-target="#alertOut3" class="btn btn-danger btn-lg">use other page as dialog content</button>
+	<div id="alertOut3" class="modal fade"></div>
+	
+
+
+
+	
+	<script src="js/bootstrap.js"  type="text/javascript"></script>
+</body>
+</html>

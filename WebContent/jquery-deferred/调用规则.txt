@@ -1,0 +1,8 @@
+1.deferred（延迟）有三种状态pending、resolved、rejected，分别表示未处理、被受理或成功完成、被拒绝。
+2.deferred.resolve(被受理或成功完成)后，状态将变成resolved,将直接调用doneCallbacks此回调函数（此回调函数一般在 deferred.then或deferred.done方法中），并且使用提供给resolve或resolveWith方法的参数，依照被添加的顺序调用。
+3.查看deferred（延迟）的当前状态，使用state方法。
+4.deferred.reject( args )返回: Deferred 。延迟被拒绝后，状态将变成rejected,将直接调用failCallbacks此回调函数（此回调函数一般在 deferred.then或deferred.fail 方法中），并且使用提供给reject或rejectWith方法的参数，依照被添加的顺序调用。
+5.deferred.notify( args )返回: Deferred 。将立即调用Deferred（延迟）对象上进行中的回调 （progressCallbacks），如问deferred.then或者 deferred.progress方法，并将args实参传递给他们。再调用任何 .notify() (或者添加 progressCallbacks) 都会被忽略
+6.deferred（延迟）对象的所有方法中，deferred.resolve、deferred.resolvewith、deferred.reject、deferred.rejectwith、deferred.notify、deferred.notifywith、jQuery.when()是主动的方法，
+deferred.then()、deferred.always()、deferred.done()、deferred.fail()、deferred.progress()是被动的方法（即回调函数，随着主动方法的状态改变时才能执行）
+7.从1.8开始deferred.pipe()过时，使用deferred.then代替。

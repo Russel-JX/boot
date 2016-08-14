@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF8">
+<title>$.callbacks实现观察者模式</title>
+	<link href="css/bootstrap.css" rel="stylesheet" />
+	<script src="../js/jquery1.10.js" type="text/javascript"></script>
+	
+		<script type="text/javascript">
+		$(document).ready(function(){
+			function fn1( value ) {    
+				console.log( value );
+			} 
+			function fn2( value ) {    
+				fn1("fn2 says: " + value);    
+				return false;
+			} 
+
+			
+			/*
+			topics：相当于java中的发布者实现类，有增加、移除、修改通知（发布）的方法
+			发布者和订阅者的关系通过topics来维护，有相同id的人为一组发布者和订阅者，即$.Topic( param )中param相同的人员。
+			一般的topics值：
+			{
+				"a":{publish: callbacks.fire,subscribe: callbacks.add,unsubscribe: callbacks.remove },
+				"b":{publish: callbacks.fire,subscribe: callbacks.add,unsubscribe: callbacks.remove },
+				"c":{publish: callbacks.fire,subscribe: callbacks.add,unsubscribe: callbacks.remove },
+				...
+			}
+			*/
+			var topics = {}; 
+			/*
+			每次调用此方法，返回一个topic对象，次对象中，有publish、subscribe、unsubscribe三个方法。
+			*/
+			jQuery.Topic = function( id ) {    
+				var callbacks,        method,        
+				topic = id && topics[ id ];//（1）javascript中，“&&”运算符：左侧围真，返回右边的值；左侧围假，返回左边得值。
+				//alert(topics[ id ]+"--"+topic+"--"+(!topic));//第一次结果：undefined--undefined--true
+				if ( !topic ) {        
+					callbacks = jQuery.Callbacks();        
+					topic = {            
+							publish: callbacks.fire,            
+							subscribe: callbacks.add,            
+							unsubscribe: callbacks.remove        
+							};        
+					if ( id ) {            
+						topics[ id ] = topic;        
+					}
+					//alert("topics[ id ]="+topic);
+				}    
+				return topic;
+			}; 
+			
+			// Subscribers。方法fn1、fn2相当于两个阅者（subscriber），他们订阅了叫做"mailArrived" 的新闻
+			$.Topic( "mailArrived" ).subscribe( fn1 );//第一次执行（1）时，id有值，topics[ "mailArrived" ]为undefined，topic为undefined；执行完jQuery.Topic方法后，topics为{"mailArrived":{publish: callbacks.fire,subscribe: callbacks.add,unsubscribe: callbacks.remove }}
+			$.Topic( "mailArrived" ).subscribe( fn2 );//第二次执行（1）时，id有值，topics[ "mailArrived" ]有值，topic为{"mailArrived":{publish: callbacks.fire,subscribe: callbacks.add,unsubscribe: callbacks.remove }}，不会进入if(!topic)
+			//方法fn1还订阅了叫做"mailSent" 的新闻
+			$.Topic( "mailSent" ).subscribe( fn1 ); 
+			// Publisher。发布了"mailArrived"的新闻，并传了参数"hello world!"
+			$.Topic( "mailArrived" ).publish( "hello world!" );
+			// Publisher。发布了"mailSent"的新闻，并传了参数"woo! mail!" 
+			$.Topic( "mailSent" ).publish( "woo! mail!" ); 
+			// Here, "hello world!" gets pushed to fn1 and fn2
+			// when the "mailArrived" notification is published
+			// with "woo! mail!" also being pushed to fn1 when
+			// the "mailSent" notification is published
+			/*output:
+				hello world!
+				fn2 says: hello world!
+				woo! mail!
+			*/ 
+
+			
+			
+			//another way to run
+		/* 	// subscribe to the mailArrived notification
+			$.Topic( "mailArrived" ).subscribe( fn1 ); 
+			// create a new instance of Deferreds
+			var dfd = $.Deferred(); 
+			// define a new topic (without directly publishing)
+			var topic = $.Topic( "mailArrived" ); 
+			// when the deferred has been resolved, publish a
+			// notification to subscribersdfd.done( topic.publish ); 
+			// Here the Deferred is being resolved with a message
+			// that will be passed back to subscribers. It's possible to
+			// easily integrate this into a more complex routine
+			// (eg. waiting on an ajax call to complete) so that
+			// messages are only published once the task has actually
+			// finished.
+			dfd.resolve( "it's been published!" );  */
+
+
+
+			
+		});
+	</script>
+</head>
+<body>
+<h3>jquery的观察者模式见浏览器调试工具控制台输出</h3>
+<h3>如果||左侧表达式的值为真值，则返回左侧表达式的值；否则返回右侧表达式的值。</h3>
+<h3>如果||左侧表达式的值为真值，则返回右侧表达式的值；否则返回左侧表达式的值。</h3>
+<TABLE style="WIDTH: 204pt; BORDER-COLLAPSE: collapse" border=0 cellSpacing=0 cellPadding=0 width=271><TBODY>
+<TR style="HEIGHT: 13.5pt" height=18>
+<TD style="WIDTH: 97pt; HEIGHT: 13.5pt" class=xl65 height=18 width=129>数据类型</TD>
+<TD style="BORDER-LEFT: medium none; WIDTH: 107pt" class=xl65 width=142>转换为bool后的值</TD></TR>
+<TR style="HEIGHT: 13.5pt" height=18>
+<TD style="HEIGHT: 13.5pt; BORDER-TOP: medium none" class=xl65 height=18>null</TD>
+<TD style="BORDER-LEFT: medium none; BORDER-TOP: medium none" class=xl65>FALSE</TD></TR>
+<TR style="HEIGHT: 13.5pt" height=18>
+<TD style="HEIGHT: 13.5pt; BORDER-TOP: medium none" class=xl65 height=18>undefined</TD>
+<TD style="BORDER-LEFT: medium none; BORDER-TOP: medium none" class=xl65>FALSE</TD></TR>
+<TR style="HEIGHT: 13.5pt" height=18>
+<TD style="HEIGHT: 13.5pt; BORDER-TOP: medium none" class=xl65 height=18>Object</TD>
+<TD style="BORDER-LEFT: medium none; BORDER-TOP: medium none" class=xl65>TRUE</TD></TR>
+<TR style="HEIGHT: 13.5pt" height=18>
+<TD style="HEIGHT: 13.5pt; BORDER-TOP: medium none" class=xl65 height=18>function</TD>
+<TD style="BORDER-LEFT: medium none; BORDER-TOP: medium none" class=xl65>TRUE</TD></TR>
+<TR style="HEIGHT: 13.5pt" height=18>
+<TD style="HEIGHT: 13.5pt; BORDER-TOP: medium none" class=xl65 height=18>0</TD>
+<TD style="BORDER-LEFT: medium none; BORDER-TOP: medium none" class=xl65>FALSE</TD></TR>
+<TR style="HEIGHT: 13.5pt" height=18>
+<TD style="HEIGHT: 13.5pt; BORDER-TOP: medium none" class=xl65 height=18>1</TD>
+<TD style="BORDER-LEFT: medium none; BORDER-TOP: medium none" class=xl65>TRUE</TD></TR>
+<TR style="HEIGHT: 13.5pt" height=18>
+<TD style="HEIGHT: 13.5pt; BORDER-TOP: medium none" class=xl65 height=18>0、1之外的数字</TD>
+<TD style="BORDER-LEFT: medium none; BORDER-TOP: medium none" class=xl65>TRUE</TD></TR>
+<TR style="HEIGHT: 13.5pt" height=18>
+<TD style="HEIGHT: 13.5pt; BORDER-TOP: medium none" class=xl65 height=18>字符串</TD>
+<TD style="BORDER-LEFT: medium none; BORDER-TOP: medium none" class=xl65>TRUE</TD></TR>
+<TR style="HEIGHT: 13.5pt" height=18>
+<TD style="HEIGHT: 13.5pt; BORDER-TOP: medium none" class=xl65 height=18>""(空字符串)</TD>
+<TD style="BORDER-LEFT: medium none; BORDER-TOP: medium none" class=xl65>FALSE</TD></TR></TBODY></TABLE>
+	
+</body>
+</html>

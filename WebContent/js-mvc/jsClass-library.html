@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>定义js“类”库</title>
+
+	<script type="text/javascript" src="../js/jquery1.10.js"></script>
+	<script type="text/javascript" src="helper.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//use method from another js file
+			/* helper.formatDate("asdfa");
+			
+			var people = new People("China");
+			alert(people.country); */
+			
+			/*
+			 * generateClass是一个普通方法，或者称为js的类库，因为它用于创建js中的类（构造方法）
+			 * */
+			var generateClass=function(){
+				//定义一个专门用于生产js类的构造函数，最后将作为generateClass类库的返回值返回。
+				//构造函数用驼峰命名法，首字母大写，用于和普通方法名区别开
+				var MyClass = function(country){
+					//当创建MyClass的实例时，将自动执行下行代码——调用init方法。
+					//this.init指代MyClass实例的init方法；
+					this.init.apply(this,arguments);//调用此init方法
+				};
+				//构造函数.prototype是任何函数的固有属性。prototype 属性使您有能力向对象添加属性和方法。给对象MyClass增加方法init
+				MyClass.prototype.init = function(){};
+				return MyClass;
+			};
+
+			
+			//通过类库generateClass，创建People类
+			var People = new generateClass;
+			//重新定义当前类的初始化方法
+			People.prototype.init = function(){
+				console.log("正在创建People类的实例...");
+			};
+			//通过People类创建人的实例
+			var people = new People;
+		});
+	</script>
+
+</head>
+<body>
+
+</body>
+</html>

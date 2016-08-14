@@ -1,0 +1,1123 @@
+@CHARSET "UTF-8";
+body {
+	margin-top:0px;
+	font-family: "Helvetica Neue","Hiragino Sans GB","Microsoft YaHei","\9ED1\4F53",Arial,sans-serif;
+	font-size+: 24px;
+}
+a {
+  font-size: 18px;
+  color: #1a1a1a;
+}
+.clearfix{
+	clear:both;
+}
+/* 方正兰亭纤黑 */
+@font-face{
+	font-family:FZLTXH;
+	src:url("../font/fzltxh-webfont.ttf"),url('../font/fzltxh-webfont.eot');
+}
+.bgcolor1{
+	background:rgb(243,243,243);
+}
+.bgcolor2{
+	background:#fff;
+}
+.pull-left{
+	float:left;
+}
+.pull-right{
+	float:right;
+}
+.font1{
+	font-size:12px;
+	color: rgb(17,191,254);
+}
+.font2{
+	font-size:15px;
+	color: rgb(63,158,214);
+}
+.font12{
+	font-size:12px;
+}
+.font14{
+	font-size:14px;
+	color: rgb(63,158,214);
+	padding-top: 2px;
+}
+.font16{
+	font-size:16px;
+	color: rgb(63,158,214);
+}
+.font3{
+	font-size:20px;
+}
+.font16{
+	font-size:16px;
+}
+.font18{
+	font-size:18px;
+}
+.font22{
+	font-size:22px;
+}
+.font24{
+	font-size:24px;
+}
+.font-red{
+	color:#e50000;
+	font-size:14px;
+}
+.font-gray{
+	color:rgb(199,199,199);
+	font-size:14px;
+}
+.font-blue{
+	color:rgb(63,158,214);
+	font-size:14px;
+}
+.left-links{
+	margin:5px 0;
+}
+.left-links a{
+	font-size:14px;
+	color: rgb(63,158,214);
+	text-align:justify;
+}
+.link{
+}
+.btns {
+  	background: rgb(17,191,254);
+  	text-align:center;
+  	color: #fff;
+  	border: 0;
+  	cursor: pointer;
+}
+.btns-tag {
+	padding:3px 10px;
+  	background: rgb(244,244,244);
+  	text-align:center;
+  	color: rgb(63,158,214);
+  	border: 0;
+  	cursor: pointer;
+  	font-size:12px;
+  	display: inline-block;/* 是span之间上下外边距有效 */
+  	margin-bottom: 5px;
+}
+/* 带图标按钮 */
+.btn-icon{
+	background: rgb(255,245,227);
+	padding:3px 10px;
+	font-size: 14px;
+  	text-align:center;
+  	color: rgb(226,213,197);
+  	border: 1px solid rgb(254,231,197);
+  	border-radius:4px;
+  	cursor: pointer;
+  	opacity:0.5;
+}
+.btn-icon:hover{
+  	opacity:1;
+  	font-size: 16px;
+}
+
+/* 顶部用户头像 */
+.user-topic-num{
+	margin:2px 0;
+}
+
+/* 内部用户头像 */
+.user-package{
+	padding:15px 10px;
+}
+.user-top{
+	margin: 110px 0 0 0;
+  	background: rgb(246,246,246);
+  	width: 90%;
+}
+.avatar-sm{
+	width:24px;
+	height:24px;
+}
+.user-note{
+	font-size:20px;
+}
+.user-detail{
+	margin-left:70px;
+	padding:5px 5px;
+}
+
+.top-user-detail{
+	margin-left:140px;
+	margin-top: 45px;
+}
+.user-name{
+	padding-top: 3px;
+}
+.user-gender{
+	padding-top: 6px;
+}
+.icon-shell{
+	margin-right:5px;
+}
+.icon-gender{
+	margin-left:5px;
+}
+.user-info{
+	padding:15px 2px;
+}
+.user-base{
+	overflow:hidden;	
+}
+.user-score{
+	padding:12px 0;
+}
+.score-bg{
+	position:relative;
+	width: 100px;
+  	height: 14px;
+	background:#fff;
+	border:1px solid rgb(222,222,222);
+	border-radius: 8px;
+	margin: 0 20px 0 45px;
+}
+.scores{
+	height:14px;
+	background:rgb(17,191,254);
+	border-radius: 8px;
+}
+.score-value{
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	text-align:center;
+	font: 14px/14px arial;
+	cursor:pointer;
+}
+.btn-replying{
+	padding:6px 10px;
+	background:#fff;
+	color:#000;
+	border:1px solid rgb(219,219,219);
+}
+/* 右侧广告 */
+.ads {
+  	overflow: hidden;
+  	margin: 15px 20px;
+  	text-align: center;
+  	background: rgb(246,246,246);
+}
+.qr-app{
+	overflow:hidden;
+	margin: 15px 20px;
+	padding:10px 0;
+	text-align: center;
+	background: rgb(246,246,246);
+}
+.qr-weibo{
+	overflow:hidden;
+	margin: 15px 20px;
+	padding:10px 0;
+	text-align: center;
+	background: rgb(246,246,246);
+}
+.qr-app-img{
+	margin:10px 0;
+}
+.title-download{
+	font-size:17px;
+	margin-top:10px;
+}
+
+/* 最近来访 */
+.visitor-package{
+	padding: 15px 10px;
+}
+.visitor-label{
+	font-size:18px;
+	margin-bottom:15px;
+}
+.visitors{
+	margin-bottom:5px;
+}
+.visitors a{
+	display:inline-block;
+	margin-right:5px;
+	margin-bottom:5px;
+}
+
+/* 加载更多 */
+.more-package{
+	margin:0 auto;
+	text-align: center;
+}
+.btn-load-more{
+	text-align:center;
+	font-size:14px;
+  	padding: 5px 25px;
+  	border:1px solid rgb(246,246,246);
+  	border: 1px solid transparent;
+  	cursor: pointer;
+  	opacity:0.5;
+}
+
+/* 通知、收藏、帖子的列表 */
+.feature-title {
+  	margin-bottom: 30px;
+}
+.vitical-divider {
+  	width: 5px;
+  	height: 20px;
+  	background: rgb(63,158,214);
+  	margin-right: 8px;
+  	margin-top: 4px;
+}
+.feature-name {
+  	font-size: 20px;
+}
+.list-package{
+	padding:15px 15px;
+}
+.list-item{
+	margin-bottom:22px;
+}
+.topic-link{
+	color:#000;
+}
+.topic-link:hover{
+	color:rgb(63,158,214);
+	text-decoration:underline;
+}
+.reply-label{
+	margin-left:20px;
+	font-size: 15px;
+}
+.icon-comment{
+	margin-left:40px;
+	color:rgb(222,222,222);
+}
+.hr-top{
+	margin-top:13px;
+}
+.tags-list{
+	margin:5px 0 0 0;
+}
+.topic-author{
+	margin-left:100px;
+}
+
+/* .btn-weibo {
+    padding: 6px 10px;
+    background: rgb(247,11,25);
+    color: #000;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+} */
+a{
+	text-decoration:none;	
+}
+textarea{
+	resize:vertical;
+}
+/* input 输入框内文字大小，对齐方式 */
+input{
+	font-size:30px;
+	text-align:center;
+}
+.captcha-input,.email-input{
+	font-size:18px;
+}
+/* align-center和content组合使用 */
+.align-center{
+	margin:auto;
+	text-align:center;
+}
+.align-left{
+	text-align:left;
+}
+/* 栅格 1/3 */
+.span3{
+	float:left;
+	width:30%;
+	margin-right:25px;
+}
+/* 栅格 2/3 */
+.span6{
+	float:left;
+	width:40%;
+	margin-right:25px;
+}
+/* 栅格 9/9 */
+.span9{
+	float:left;
+	width:100%;
+}
+
+/* 水平线 */
+.hr1{
+	height:1px;border:none;border-top:1px solid #dcdcdc;
+}
+.hr2{
+	height:1px;border:none;border-top:1px solid rgb(243,243,243);
+}
+.hr3{
+	height:1px;border:none;border-top:1px dashed rgb(200,200,200);
+	margin-top:8px;
+	margin-bottom:8px;
+}
+/* 中间展示区域main */
+.f-container{
+	overflow:hidden;
+	margin:0 auto;
+	width:980px;
+}
+/* logo信息  */
+.f-header{
+	background:url("../images/test-bg.png");
+	width: 1032px;
+  	height: 311px;
+}
+.f-banner{
+	/* border-left:1px solid rgb(215,215,215);
+	border-right:1px solid rgb(215,215,215); */
+	padding:30px 15px 30px;
+}
+.f-logo-package{
+	background:rgb(246,246,246);
+	/* background: transparent; 换成这个???*/
+	width: 90%;
+	margin: 130px 0 0 0;
+}
+.f-detail{
+	margin-top:50px;
+}
+.f-logo-detail{
+	padding-left:20px;
+	padding-right: 60px;
+}
+.f-logo-name{
+	font-size:25px;
+	/* margin-left:8px;
+	margin-right:10px; */
+}
+.f-slogan{
+	font-size:14px;
+	padding-top: 8px;
+}
+.f-number{
+	padding-top: 6px;
+}
+
+/* 论坛导航 */
+.f-nav{
+	overflow:hidden;
+	background:rgb(246,246,246);
+}
+.f-nav-ul{
+	width: 100%;
+}
+.f-nav-li{
+	display:block;
+	background:rgb(246,246,246);	
+}
+.f-nav-li:hover{
+	background:rgb(216,216,216);	
+}
+.li-active{
+	background:rgb(216,216,216);	
+}
+.f-nav-search{
+	padding: 18px 30px 18px 30px;
+}
+.f-search{
+	background:rgb(246,246,246);
+	margin-left: 3px;
+	width:200px;
+	height: 25px;
+	font-size:15px;
+	border:0;
+}
+.fa-search{
+	padding: 0 10px;
+	cursor:pointer;
+}
+.f-search-form{
+	border:1px solid #dcdcdc;
+	border-radius: 10px;
+}
+.f-search-submit{
+	border:0;
+}
+.f-nav-li a{
+	display:block;
+	padding: 20px 60px;
+}
+
+/* 帖子列表 */
+.topic-item{
+	margin-bottom:25px;
+}
+.topic-content {
+ 	text-align: justify;
+  	margin-left: 100px;
+}
+.topic-title{
+	margin-bottom:20px;
+}
+.topic-abstract{
+	margin-bottom:20px;
+}
+.topic-imgs{
+	margin-bottom:40px;
+}
+.topic-imgs img{
+	margin-right:4px;
+	cursor:pointer;
+}
+.topic-name {
+  	font-size: 18px;
+  	color: rgb(63,158,214);
+  	text-align: justify;
+}
+.topic-others{
+	padding:0 10px;
+}
+.topic-others *{
+	color:rgb(199,199,199);
+	font-size:16px;
+}
+.topic-others .btns-tag{
+	font-size: 12px;
+}
+.icon-i{
+	margin-right: 6px;
+}
+.spans{
+	margin-right:8px;
+}
+.topic-time{
+	font-size:13px;
+	padding-top:4px;
+}
+
+/* 发帖 */
+.f-footer{
+	padding: 30px 15px 30px;
+  	background: rgb(246,246,246);
+}
+.new-topic-area{
+	overflow:hidden;
+}
+.label-name{
+	font-size:16px;
+	font-weight:bold;
+}
+.icon-edit{
+	background:rgb(255,162,72);
+	color:#fff;
+	padding: 1px 2px;
+}
+.new-topic-name{
+	width:700px;
+	height:34px;
+	margin:30px 0;
+	text-align:left;
+}
+.new-topic-input{
+	width:700px;
+	height:200px;
+	resize: none;
+}
+.check-package{
+	margin:30px 0 20px 0;
+}
+.btn-post-new-reply {
+  	width: 70px;
+  	height: 35px;
+  	font-size: 18px;
+  	line-height: 32px;
+  	border-radius: 5px;
+}
+/* 覆盖ckeditor样式 */
+.cke_top{
+	background: #fff !important;
+}
+
+
+.banner{
+	background:rgb(246,246,246);
+	border-left:1px solid rgb(215,215,215);
+	border-right:1px solid rgb(215,215,215);
+	padding:30px 15px 30px;
+}
+/* 内容展示区域 */
+.main{
+	overflow: hidden;
+	background:#fff;
+	border-left:1px solid rgb(215,215,215);
+	border-right:1px solid rgb(215,215,215);
+}
+.main-left{
+	float:left;
+	width:740px;
+	border-right:1px solid rgb(215,215,215);
+}
+.main-right{
+	float:right;
+	width:236px;
+	border-left:1px solid rgb(215,215,215);
+}
+.main-left>div{
+	padding:15px 15px;	
+}
+
+/* 置顶 热帖 精华帖 */
+.label-highlight{
+	padding: 1px 4px;
+  	background: rgb(253,14,116);
+  	text-align: center;
+  	color: #fff;
+  	border: 0;
+  	border-radius: 2px;
+  	cursor: pointer;
+  	font-size: 12px;
+  	display: inline-block;
+  	margin-bottom: 5px;
+}
+.label-top{
+	padding: 1px 4px;
+  	background: rgb(102,163,255);
+  	text-align: center;
+  	color: #fff;
+  	border: 0;
+  	border-radius: 2px;
+  	cursor: pointer;
+  	font-size: 12px;
+  	display: inline-block;
+  	margin-bottom: 5px;
+}
+.label-hot{
+	padding: 1px 4px;
+  	background: rgb(247,11,25);
+  	text-align: center;
+  	color: #fff;
+  	border: 0;
+  	border-radius: 2px;
+  	cursor: pointer;
+  	font-size: 12px;
+  	display: inline-block;
+  	margin-bottom: 5px;
+}
+
+/* 底部公司和版权说明 */
+.footer{
+	text-align:center;
+	margin-top:80px;
+	margin-bottom:40px;
+	color:#8c8c8c;
+}
+.footer *{
+	color:#000;
+	margin-right:6px;
+	font-size:16px;
+}
+.us,.copyright{
+	margin-bottom:21px;
+}
+.us a{
+	color: #000;
+	text-decoration:none;
+}
+.us a:hover{
+	color:#0fb5ff;
+	text-decoration:underline;
+}
+.no a{
+	text-decoration:none;
+}
+.no a:visited {
+  	color: #787878;
+  	text-decoration: none;
+}
+
+/*头部导航栏*/
+.header{
+	background:#fff;
+	/* overflow:hidden; */
+	box-shadow:0 4px 4px #dadada;  
+	 -webkit-box-shadow:0 4px 4px #dadada;    
+	-moz-box-shadow: 0 4px 4px #dadada;   
+}
+.header-nav{
+	/* overflow:hidden; */
+}
+.header-bottom{
+	overflow:hidden;
+	background:#fff;
+	height:105px;/* 换成117px */
+	
+}
+.header-nav-content{
+	overflow:hidden;
+	width:800px;
+	/* margin:0 17%; */
+	margin-left:17%;
+	text-align:center;
+}
+
+@media only screen and (max-width:1920px){
+	.header-login{
+		padding-left:17%;
+		padding-right:17%;
+		background:#151515;
+		height:33px;
+		padding-top:4px;
+		font-size: 20px;
+		color:#ffffff;
+		border-bottom:2px solid #0fb5ff;
+	}
+}
+.header-login-icon{
+	float:left;
+}
+.header-login-icon img{
+	background:#fff;
+	opacity:0.7;
+}
+.header-login-icon img:hover{
+	background:#fff;
+	opacity:1;
+}
+.header-login-icon div{
+	float:left;
+}
+.header-nav-icon{
+	margin-top:25px;
+	margin-right:140px;
+}
+.user-links .welcome{
+	float:left;
+	font-size:16px;
+}
+.welcome,.download-app,.login,.register{
+	letter-spacing:1px;
+}
+.welcome{
+	opacity:0.7;	
+}
+.welcome:hover{
+	opacity:1;	
+}
+ul {
+  list-style: none;
+}
+.header-nav-link{
+	overflow:hidden;
+	/* margin-bottom:0px;
+	padding-top:25px; */
+	/* height:117px; */
+}
+
+.header-nav-link>li{
+	float:left;
+	width:155px;
+	margin:0;
+}
+.l1{
+	border-left:1px solid #f0f0f0;
+	/* border-right:1px solid #f0f0f0; */
+}
+.l1,.l2,.l3{
+	border-right:1px solid #f0f0f0;
+}
+/* 已点中的超链效果 */
+.header-nav-link a.active{
+	color:#fff;
+	background:#0fb5ff;
+	height:101px;
+	line-height:101px;
+	border-left:0;
+	border-right:0;
+	border-bottom: 4px solid #0091d1;
+	text-decoration:none;
+}
+
+.header-nav-link li a.active:after{/* 已点中的超链效果 */
+	position:absolute;
+	top:91px;
+	left:72px;
+	content:"";
+	width: 0;
+	height: 0;
+	border-top: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid #0091d1;
+	border-left: 5px solid transparent;
+}
+.header-nav-link a{
+	position:relative;
+	display:block;/* 让超链接成为块级元素 */
+	text-align:center;
+	color:#151515;
+	height:105px;
+	line-height:105px;
+	font-size: 30px;
+	letter-spacing:2px;
+}
+.header-nav-link a:link{
+	color:#151515;
+	text-decoration:none;
+}
+.header-nav-link a:hover{
+	color:#fff;
+	background:#0fb5ff;
+	height:101px;
+	line-height:101px;
+	border-left:0;
+	border-right:0;
+	border-bottom: 4px solid #0091d1;
+	text-decoration:none;
+}
+
+
+.header-nav-link a:hover:after{/* 鼠标悬浮（hover）后，加上(after)三角 */
+	position:absolute;
+	top:91px;
+	left:50%;
+	content:"";
+	width: 0;
+	height: 0;
+	border-top: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid #0091d1;
+	border-left: 5px solid transparent;
+}
+
+
+.l3 a:visited{
+	color:#151515;
+}
+.l3 a:hover{
+	color:#fff;
+}
+
+
+.modal-address{
+	display:none;
+	position:fixed !important;
+	top:0;
+	left:0;
+	width:100%;
+	height:2222px;
+	background-color:#000;
+	opacity:0.5;
+	z-index:9999;
+}
+
+.logo_sina{
+	margin-left:-60px;	
+}
+
+/*个人中心下拉内容*/
+.user-links{
+	float:right;
+	padding-top:1px;
+	font-size:16px;
+	color:#fff;
+	text-decoration:none;
+}
+.user-links .wrapper{
+	opacity:1;
+	z-index:999;
+}
+.user-links a{
+	font-size:16px;
+	text-decoration:none;
+	margin-right:4px;
+	color:#fff;
+	opacity:0.7;
+}
+.tooltip3 a{
+	display:block;
+}
+.user-links a:visited{
+	color:#fff;
+	opacity:0.7;
+	text-decoration:none;
+}
+.user-links a:hover{
+	color:#fff;
+	text-decoration:none;
+	opacity:1;
+}
+
+/* .icon-down:hover{
+	-webkit-transform:rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-ms-transform:rotate(180deg);
+	-o-transform: rotate(180deg);
+	transform:rotate(180deg);
+} */
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+li:hover{
+	color:#fff;
+}
+/*自定义遮罩*/
+.modal-hide{
+	display:none;
+	position:fixed !important;
+	top:0;
+	left:0;
+	width:100%;
+	height:2222px;
+	background-color:#000;
+	opacity:0.9;
+	z-index:9999;
+}
+.loading{
+	display:none;
+	position:fixed !important;
+	top:50%;
+	left:50%;
+	z-index:10000;
+}
+.timeout{
+	display:none;
+	position:fixed !important;
+	top:50%;
+	left:50%;
+	font-size:30px;
+	width:15%;
+	background:#000000;
+	color:#fff;
+	padding:2px 5px;
+	opacity:0.5;
+	border-radius:8px;
+}
+
+/*微信公众号tooltip*/
+.wx-qrcode{
+	margin-right:20px;
+	opacity:1;
+}
+.wx-qrcode:hover{
+	opacity:1;
+}
+.wrapper-wx {
+	z-index:960000000 !important;
+	text-transform: uppercase;
+	/*background: #ececec;*/
+	color: #555;
+	cursor: pointer;
+	font-family: Arial, Impact, sans-serif;
+	font-size: 20px;
+	/* margin: 0 15px 10px 15px; */
+	margin: 0 0 10px 0;
+	/* padding: 0 20px 55px 20px; */
+	padding: 0 0 55px 0;
+	position: relative;
+	text-align: center;
+	/* width: 150px; */
+	-webkit-transform: translateZ(0); /* webkit flicker fix */
+	-webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+}
+.wrapper-wx .tooltip3-wx {
+	background:  rgb(17,191,254);
+	top: 10px;
+	color: #fff;
+	display: block;
+/* 	left: -15px; */
+	left: -60px;
+	margin-top: 32px;/*下拉距离上方距离*/
+	opacity: 0;
+	/* padding: 20px; */
+	padding: 0 0 0 0;
+	pointer-events: none;
+	position: absolute;
+/* 	width: 100%; */
+	width: 150px;
+	-webkit-transform: translateY(-10px);
+	-moz-transform: translateY(-10px);
+	-ms-transform: translateY(-10px);
+	-o-transform: translateY(-10px);
+	transform: translateY(-10px);
+	-webkit-transition: all .25s ease-out;
+	-moz-transition: all .25s ease-out;
+	-ms-transition: all .25s ease-out;
+	-o-transition: all .25s ease-out;
+	transition: all .25s ease-out;
+	-webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+	-moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+	-ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+	-o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+
+/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+.wrapper-wx .tooltip3-wx:before {
+	z-index: 960000000 !important;
+	bottom: -20px;
+	content: " ";
+	display: block;
+	height: 20px;
+	left: 0;
+	position: absolute;
+	width: 100%;
+}
+
+/* CSS Triangles - see Trevor's post */
+.wrapper-wx .tooltip3-wx:after {
+	z-index: 960000000 !important;
+	border-left: solid transparent 10px;
+	border-right: solid transparent 10px;
+	border-bottom: solid rgb(0,140,207) 10px;
+	top: -10px;
+	content: " ";
+	height: 0;
+	left: 55%;
+	margin-left: -13px;
+	position: absolute;
+	width: 0;
+}
+
+.wrapper-wx:hover .tooltip3-wx {
+	opacity: 1;
+	pointer-events: auto;
+	-webkit-transform: translateY(0px);
+	-moz-transform: translateY(0px);
+	-ms-transform: translateY(0px);
+	-o-transform: translateY(0px);
+	transform: translateY(0px);
+}
+
+/* IE can just show/hide with no transition */
+.lte8 .wrapper-wx .tooltip3-wx {
+	display: none;
+}
+
+.lte8 .wrapper-wx:hover .tooltip3-wx {
+	display: block;
+}
+
+/*css3 tooltip*/
+.tooltip3 li{
+	margin-top:4px;
+}
+.wrapper {
+	float:left;
+	text-transform: uppercase;
+	color: #555;
+	cursor: pointer;
+	/* font-family: Arial, Impact, sans-serif; */
+	font-family: "Helvetica Neue","Hiragino Sans GB","Microsoft YaHei","\9ED1\4F53",Arial,sans-serif;
+	font-size: 20px;
+	margin: 0 0 0 0;
+	padding: 0 0 12px 5px;
+	position: relative;
+	text-align: center;
+	/* width: 100px; */
+	-webkit-transform: translateZ(0); /* webkit flicker fix */
+	-webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+	
+	transition:all 0.3s ease-out;
+}
+
+.wrapper .tooltip3 {
+	border-radius: 4px;
+	background:  #151515;
+	top: 7px;
+	color: #fff;
+	display: block;
+	left: 0px;
+	margin-top: 24px;
+	opacity: 0;
+	padding: 8px;
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	-webkit-transform: translateY(-10px);
+	-moz-transform: translateY(-10px);
+	-ms-transform: translateY(-10px);
+	-o-transform: translateY(-10px);
+	transform: translateY(-10px);
+	-webkit-transition: all .25s ease-out;
+	-moz-transition: all .25s ease-out;
+	-ms-transition: all .25s ease-out;
+	-o-transition: all .25s ease-out;
+	transition: all .25s ease-out;
+	-webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+	-moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+	-ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+	-o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+.icon-down{
+	float:left;
+	margin:8px 10px 0 5px;
+	
+	-webkit-transition:all 0.3s ease-out;
+	-moz-transition:all 0.3s ease-out;
+	-ms-transition:all 0.3s ease-out;
+	-o-transition:all 0.3s ease-out;
+	transition:all 0.3s ease-out;
+}
+.wrapper:hover ~ .icon-down{/* wrapper元素hover时，让三角型旋转 */
+	transform:rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+}
+
+/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+.wrapper .tooltip3:before {
+	z-index: 96;
+	bottom: -20px;
+	content: " ";
+	display: block;
+	height: 10px;
+	left: 0;
+	position: absolute;
+	width: 100%;
+}
+
+/* CSS Triangles - see Trevor's post */
+.wrapper .tooltip3:after {
+	z-index: 96;
+	border-left: solid transparent 15px;
+	border-right: solid transparent 15px;
+	border-bottom: solid  #151515 10px;
+	top: -10px;
+	content: " ";
+	height: 0;
+	left: 50%;
+	margin-left: -13px;
+	position: absolute;
+	width: 0;
+}
+
+.wrapper:hover .tooltip3 {
+	opacity: 1;
+	pointer-events: auto;
+	-webkit-transform: translateY(0px);
+	-moz-transform: translateY(0px);
+	-ms-transform: translateY(0px);
+	-o-transform: translateY(0px);
+	transform: translateY(0px);
+}
+
+
+/* IE can just show/hide with no transition */
+.lte8 .wrapper .tooltip3 {
+	display: none;
+}
+
+.lte8 .wrapper:hover .tooltip3 {
+	display: block;
+}

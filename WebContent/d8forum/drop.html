@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>导航下拉测试</title>
+	<script type="text/javascript" src="js/jquery1.10.js"></script>
+	<script type="text/javascript" src="ckeditor_4.5.4_standard/ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="js/topicDetail.js"></script>
+
+	<style type="text/css">
+		.site-topbar .topbar-cart {
+			width: 120px;
+			margin-left: 15px;
+		}
+		
+		.site-topbar .topbar-cart,.site-topbar .topbar-info {
+			position: relative;
+			float: right;
+			_display: inline;
+			height: 40px;
+		}
+		
+		.site-topbar .cart-mini {
+			position: relative;
+			z-index: 32;
+			display: block;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			color: #b0b0b0;
+			background: #424242;
+		}
+		
+		.site-topbar .cart-menu {
+			display: none;
+			position: absolute;
+			right: 0;
+			right: -1px \9;
+			top: 40px;
+			z-index: 31;
+			width: 316px;
+			padding: 15px 0 0;
+			color: #424242;
+			background: #fff;
+			border: 1px solid #e0e0e0 \9;
+			border-top: 0 \9;
+			-webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+		}
+		
+		.site-topbar .cart-menu .loading {
+			margin: 5px 20px 20px;
+			text-align: center;
+		}
+		
+		.loading {
+			padding: 20px 0;
+		}
+		
+		.topbar-cart{
+			color:red;
+		}
+		.hh{
+			font-size:25px;
+			color:yellow;
+		}
+	</style>
+
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+	<div class="topbar-cart" id="J_miniCartTrigger">
+		<a class="cart-mini" id="J_miniCartBtn" href="http://static.mi.com/cart/" data-stat-id="e63eb48ec74061d8" onclick="_msq.push(['trackEvent', '79fe2eae924d2a2e-e63eb48ec74061d8', 'http://static.mi.com/cart/', 'pcpid']);">
+			<i class="iconfont"></i>购物车<span class="cart-mini-num J_cartNum">（0）</span>
+		</a>
+		<div class="cart-menu" id="J_miniCartMenu" style="display: block;">
+			<div class="loading">
+				<div class="loader"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="hh">百度</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>给js“类”库，类私有变量、函数</title>
+
+	<script type="text/javascript" src="../js/jquery1.10.js"></script>
+	<script type="text/javascript" src="helper.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//这是一个全局变量（函数）
+			var Person = function(){};
+			//匿名函数中，定义私有变量和方法
+			(function(param){
+				var findByID = function(){console.log("私有函数被调用了...");};
+				Person.find = function(id){
+					if(typeof id=="number"){
+						return findByID(id);						
+					}
+				};
+				//使用window全局变量的属性，在匿名函数中定义全局变量
+				var name="Tom";
+				param.place="China";
+			})(window);
+			Person.find(100);
+			console.log(window.place);
+			
+			
+		});
+	</script>
+
+</head>
+<body>
+	<h3>可以利用JavaScript 匿名函数来创建私有作用域，这些私有作
+用域只能在内部访问：</h3>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery-draggable</title>
+
+	<link rel="stylesheet" href="/BootStrap/css/jquery-ui-1.10.4.css"></link>
+	<script type="text/javascript" src="/BootStrap/js/jquery1.10.js"></script>
+	<script type="text/javascript" src="/BootStrap/js/jquery-ui-1.10.4.js"></script>
+	
+	<style type="text/css">
+		.dropDiv{
+			margin:20px;
+			width:200px;
+			height:200px;
+			padding:20px;
+			border:2px solid #ccc;
+		}
+		.dragDiv{
+			width:200px;
+			height:200px;
+			padding:20px;
+			border:2px solid #999;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#drag1").draggable();
+			$("#drop1").droppable({
+				accept:"#drag1",
+				activeClass:"ui-state-hover",
+				hoverClass:"ui-state-active"/* ,
+				drop: function( event, ui ) {
+					$( this )
+						.addClass( "ui-state-highlight" )
+						.find( "p" )
+							.html( "Dropped!" );
+				} */
+				
+			});
+			
+			$("#drop1").on("dropactivate",function(event,ui){
+				$(this).find("p").html("coming!");;
+			});
+			/*drop和deactivate事件，有重复的部分。
+			当draggable成功drop到droppable上时，将触发这两个事件；同时存在时drop先执行，dropdeactivate事件后执行。
+			同样，当离开时，dropout先执行；dropdeactivate后执行。
+			*/
+			$("#drop1").on("dropdeactivate",function(event,ui){
+				$(this).find("p").html("stopped!");
+			});
+			$("#drop1").on("dropover",function(event,ui){
+				$(this).find("p").html("over!");;
+			});
+			$("#drop1").on("dropout",function(event,ui){
+				$(this).removeClass("ui-state-highlight").find("p").html("drag out!");;
+			});
+			$("#drop1").on("drop",function(event,ui){
+				$(this).addClass("ui-state-highlight").find("p").html("Dropped!");;
+			});
+			
+		});
+	</script>
+</head>
+<body>
+	
+	<div class="dragDiv" id="drag1">拖拽我吧</div>
+	
+	<div class="dropDiv" id="drop1"><p>拖放到这里</p></div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>使用apply访问原始上下文</title>
+
+	<script type="text/javascript" src="../js/jquery1.10.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			function test(){
+				console.log("函数中："+pa);//这句不会报错，但输出undefined.因为JS 中没有块作用域，在函数中声明的变量在整个函数中都可用（无论是在函数开头处声明还是末尾处声明）
+				var pa=100;
+			}
+			test();
+			
+			//JS 在函数执行前将整个函数的变量进行声明，无论这个变量的声明语句有没有机会执行
+			function () {   
+			    console.log(om);       // 显示 undefined   
+			    if ( false ) {               
+			        var om = 'abc' ;      // 此处声明没有机会执行   
+			    }   
+			}
+			
+			//**同名的函数后者覆盖前者。**
+			
+			
+
+			
+			function add(x){
+				x = x+1;
+			}
+			
+			var c = add(2);
+			alert(c);
+				
+			
+			
+			
+		});
+	</script>
+
+</head>
+<body>
+	<h3>JS 在执行前会进行类似"预编译"的操作，而且先预定义变量再预定义函数。</h3>
+	
+</body>
+</html>

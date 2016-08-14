@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>定制饮水计划</title>
+<SCRIPT src="staticfile/js/jquery1.10.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="staticfile/js/bootstrap.js" type="text/javascript"></SCRIPT>
+<link rel="stylesheet" href="staticfile/css/bootstrap.css">
+<link rel="stylesheet" href="staticfile/css/common.css">
+<link rel="stylesheet" href="staticfile/css/drinkPlan.css">
+</head>
+<body>
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><img src="../staticfile/images/back.png" width="20px" height="34px"></a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#about" class="nav-title"></a></li>
+					<li><a href="#contact"></a></li>
+					<li><a href="#contact" class="nav-title">定制个人饮水计划</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="container theme-showcase">
+		<div class="row">
+				<form action="../controller/DrinkController.php" method="POST">
+			<div class="col-md-12">
+					<div class="panel-body">
+						<p class="advice">健康专家提醒，按时、按量规律饮水才最健康。为了你的健康马上动手制作你自己专属的健康饮水计划吧。</p>
+						<h1 class="h1">请输入信息</h1>
+						<div class="row">
+							<label for="gender" class="col-sm-3 control-label ">性别</label>
+							<div class="col-sm-3 pull-right">
+								<input type="text" id="gender" name="gender" class="form-control" value="" />
+							</div>
+						</div>
+						<div class="row">
+							<label for="weight" class="col-sm-3 control-label">体重</label>
+							<div class="col-sm-3 pull-right">
+								<input type="text" id="weight" name="weight" class="form-control"  onkeyup="this.value=this.value.replace(/\D/g,'')"  />
+							</div>
+						</div>
+						<div class="row">
+							<label for="uptime" class="col-sm-3 control-label">起床时间</label>
+							<div class="col-sm-3 pull-right">
+								<input type="time" id="uptime" name="uptime" class="form-control uptime pull-left" value="" />
+							</div>
+						</div>
+						<div class="row">
+							<label for="downtime" class="col-sm-3 control-label">睡觉时间</label>
+							<div class="col-sm-3 pull-right">
+								<input type="time" id="downtime" name="downtime" class="form-control downtime pull-left" value="" />
+							</div>
+						</div>
+					</div>
+
+				<div class="text-center">
+					<button><img src="../staticfile/images/btn-l.png" width="365px" height="70px"></button>
+				</div>
+				</form>
+			</div>
+		</div>
+
+
+	</div>
+
+</body>
+</html>

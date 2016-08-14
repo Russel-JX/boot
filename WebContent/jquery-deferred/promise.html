@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF8">
+<title>deferred.promise()</title>
+	<!-- 选项卡图标 -->
+	<link  rel="shortcut icon" href="../images/logo.ico"  type="image/x-icon"/>
+	<script src="../js/jquery1.10.js" type="text/javascript"></script>
+	
+		<script type="text/javascript">
+		$(document).ready(function(){
+			//define a object 
+			var obj = {
+				hello:function(name){
+					alert("Hello"+name);
+				}	
+			};
+			//create a deferred 
+			var dfd = $.Deferred();
+			//set a obj as a Promise
+			dfd.promise(obj);
+			//resolve the deferred
+			dfd.resolve("Jack");
+			//use the obj as a promise 
+			//形参param通过resolve方法的实参传入
+			obj.done(function(param){
+				alert(param);
+				obj.hello("Rose");
+			}).hello("Rain");
+			/*output:
+			Jack
+			HelloRose
+			HelloRain
+			*/
+			
+			/*
+				定时0.5秒后，显示"working... "，随机定时0.4~2.4秒后，弹窗是否成功提示。
+				resolve或者reject后，不会再执行对方；
+			*/
+			function asyncEvent(){    
+				var dfd = new jQuery.Deferred();     
+				// Resolve after a random interval    
+				setTimeout(function(){        
+					dfd.resolve("hurray");    
+				}, Math.floor(400+Math.random()*2000));     
+				// Reject after a random interval    
+				setTimeout(function(){        
+					dfd.reject("sorry");    
+				}, Math.floor(400+Math.random()*2000));     
+				// Show a "working..." message every half-second    
+				setTimeout(function working(){        
+					if ( dfd.state() === "pending" ) {            
+						dfd.notify("working... ");//notify后将回调progressCallback函数，这里即 then中的$("body").append(status);            
+						setTimeout(working, 500);        }    
+				}, 1);     
+				// Return the Promise so caller can't change the Deferred    
+				return dfd.promise();
+			}
+			// Attach a done, fail, and progress handler for the asyncEvent
+			$.when( asyncEvent() ).then(    
+					function(status){        
+						alert( status+', things are going well' );    
+					},    
+					function(status){        
+						alert( status+', you fail this time' );    
+					},    
+					function(status){        
+						$("body").append(status);    
+					}
+			); 
+
+
+		});
+	</script>
+</head>
+<body>
+	<h5>reference:http://www.css88.com/jqapi-1.9/deferred.promise/</h5>
+	<h3>deferred.promise( [target ] )返回: Promise 描述: 返回Deferred(延迟)的Promise（承诺）对象</h3><br>
+	<h5>如果提供target参数，deferred.promise() 会将事件绑定到该参数上，然后返回该对象，而不是创建一个新的对象。这个方法可以用于在已经存在的对象上绑定 Promise 行为的情况。</h5>
+
+	
+	
+</body>
+</html>

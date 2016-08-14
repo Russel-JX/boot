@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>给js“类”库，添加继承</title>
+
+	<script type="text/javascript" src="../js/jquery1.10.js"></script>
+	<script type="text/javascript" src="helper.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var generateClass=function(father){
+				var MyClass = function(country){
+					this.init.apply(this,arguments);
+				};
+				
+				/*通过父类对象参数，把父类的实赋值给子类的原型，来实现继承*/
+				if(father){
+					var SubClass = function(){};
+					SubClass.prototype = father.prototype;
+					MyClass.prototype = new SubClass;
+				}
+				
+				MyClass.prototype.init = function(){};
+				MyClass.fn = MyClass.prototype;
+				MyClass.fn.parent = MyClass;
+				MyClass._super = MyClass.__proto__;
+				
+				MyClass.extend=function(obj){
+					var extended = obj.extended;
+					for(var i in obj){
+						MyClass[i] = obj[i];
+					}
+					if(extended){
+						extended(MyClass);
+					}
+				}
+				MyClass.include=function(obj){
+					var included = obj.included;
+					for(var i in obj){
+						MyClass.fn[i] = obj[i];
+					}
+					if(included){
+						included(MyClass);
+					}
+				}
+				return MyClass;
+			};
+			
+			//创建类
+			var Animal = new generateClass;
+			Animal.prototype.init = function(){
+				console.log("正在创建Animal类的实例...");
+			};
+			//向类的实例中加入新方法
+			Animal.include({
+				eat:function(){console.log("All the animal should eat!");},
+				save:function(name){console.log("正在创建name为"+name+"的记录...");}
+			});
+			
+			//创建子类
+			var Dog = new generateClass(Animal);//这时，子类已经拥有eat方法。
+			//创建子类的实例
+			var myDog = new Dog; 
+			myDog.eat();
+		});
+	</script>
+
+</head>
+<body>
+	<h3>它已经可
+以支持模块了。模块是可重用的代码段，用这种方法可以实现各种继承，用来在类之间
+共享通用的属性。</h3>
+</body>
+</html>

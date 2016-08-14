@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF8">
+<title>popover</title>
+	<link href="css/bootstrap.css" rel="stylesheet" />
+	<script src="js/jquery1.10.js" type="text/javascript"></script>
+</head>
+<body>
+	<div class="page-header">
+		<h1>popover</h1>
+	</div>
+	<h3>attribute</h3>
+	<h4>To enable the popover effect,you should init it youself with JS!</h4>
+	<div class="myPop" style="margin-left:200px;">
+		<button id="popBtn1" data-toggle="popover" title="I'm a title" data-content="I'm in the left!" data-placement="left" type="button" class="btn btn-priamry btn-lg">click to show on left</button>
+		<button id="popBtn2" data-content="I'm in the top!" data-placement="top" type="button" class="btn btn-priamry btn-lg">click to show on top</button>
+		<button id="popBtn3" data-content="I'm in the right!" data-placement="right" type="button" class="btn btn-priamry btn-lg">click to show on right</button>
+		<button id="popBtn4" data-toggle="popover" data-content="I'm in the bottom!" data-placement="bottom" type="button" class="btn btn-priamry btn-lg">click to show on bottom</button>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			//Enable popover function
+			$('.myPop button').popover();
+		});
+	</script>
+	
+	<h3>JS</h3>
+	<button id="popBtn" type="button" class="btn btn-priamry btn-lg" style="margin-left:200px;">moveover me to show popover</button>
+    <button id="showBtn" type="button" class="btn btn-danger btn-lg">click me to show popover</button>
+    <button id="hideBtn" type="button" class="btn btn-danger btn-lg">click me to hide popover</button>
+    <button id="destBtn" type="button" class="btn btn-danger btn-lg">click me to destroy popover</button>
+    <div id='message'>I'm a message</div>
+    <script type="text/javascript">
+    	$(function(){
+    		$('#popBtn').popover({
+        		'animation':true,
+        		'html':true,//enable html in tooltip
+        		'placement':'bottom',//top bottom left right auto
+        		//'selector':'button',
+        		
+        		'title':'<h3>Hello World</h3>',
+        		'content':'sdfsdffdf',
+        		
+        		'trigger':'hover',//hover focus click manual
+        		'delay':{show:500,hide:1000},//if use js to show or hide tooltip(like below),this setting is unuseful.
+        		'container':'div'//Appends the tooltip to a specific element
+        		
+        	});
+    	});
+    	/* $('#myButton').mouseover(function(e){
+    		$(this).tooltip('show');
+    	});
+    	$('#myButton').mouseout(function(e){
+    		$(this).tooltip('hide');
+    	}); */
+    	$('#showBtn').click(function(e){
+    		$('#popBtn').popover('show');
+    		
+    	});
+    	$('#hideBtn').click(function(e){
+    		$('#popBtn').popover('hide');
+    		
+    	});
+    	$('#destBtn').click(function(e){
+    		$('#popBtn').popover('destroy');
+    		
+    	});
+    	$('#popBtn').on('show.bs.popover',function(e){
+    		var message = "<font color='red'>before showing popover</font>";
+    		$('#message').append(message);
+    	});
+    	$('#popBtn').on('shown.bs.popover',function(e){
+    		var message = "<font color='blue'>after showing popover complete!</font><br/>";
+    		$('#message').append(message);
+    	});
+    	$('#popBtn').on('hide.bs.popover',function(e){
+    		var message = "<font color='brown'>before hiding popover</font>";
+    		$('#message').append(message);
+    	});
+    	$('#popBtn').on('hidden.bs.popover',function(e){
+    		var message = "<font color='green'>after hiding popover complete</font><br/>";
+    		$('#message').append(message);
+    	});
+    </script>
+	
+	
+	<script src="js/bootstrap.js"  type="text/javascript"></script>
+</body>
+</html>

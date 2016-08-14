@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF8">
+<title>tooltip</title>
+	<link href="css/bootstrap.css" rel="stylesheet" />
+	<script src="js/jquery1.10.js" type="text/javascript"></script>
+</head>
+<body>
+	<div class="page-header">
+		<h1>tooltip</h1>
+	</div>
+	<h3>attribute</h3>
+	<h4>To enable the tooltip effect,you should init it youself with JS!</h4>
+	<p class="muted" style="margin-bottom: 0;">
+		Tight pants next level keffiyeh 
+		<a href="#" data-toggle="tooltip" title="Default tooltip">you probably</a> 
+		haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, 
+		mcsweeney's fixie sustainable quinoa 8-bit american apparel 
+		<a href="#" data-toggle="tooltip" title="Another tooltip">have a</a> 
+		terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats.
+		Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A really ironic artisan 
+		<a href="#" data-toggle="tooltip" title="Another one here too">whatever keytar</a>
+		, scenester farm-to-table banksy Austin 
+		<a href="#" data-toggle="tooltip" title="The last tip!">twitter handle</a> 
+		freegan cred raw denim single-origin coffee viral.
+    </p>
+	
+	 <div class="bs-example tooltip-demo">
+      <div class="bs-example-tooltips">
+        <button onMouseOver="$(this).tooltip('show')" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Tooltip on left">sdfsdf</button>
+        <button onMouseOver="$(this).tooltip('show')" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Tooltip on top">343434</button>
+        <button onMouseOver="$(this).tooltip('show')" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">34455</button>
+        <button onMouseOver="$(this).tooltip('show')" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">鍙充晶Tooltip</button>
+      </div>
+    </div>
+    <script type="text/javascript">
+    	$('p a').mouseover(function(e){
+    		$(this).tooltip('show');
+    	});
+    </script>
+    
+    <h3>JS</h3>
+    <button id="myButton" type="button" class="btn btn-priamry btn-lg">moveover to show tooltip</button>
+    <button id="showBtn" type="button" class="btn btn-danger btn-lg">click me to show tootip</button>
+    <button id="hideBtn" type="button" class="btn btn-danger btn-lg">click me to hide tootip</button>
+    <button id="destBtn" type="button" class="btn btn-danger btn-lg">click me to destroy tootip</button>
+    <div id='message'>I'm a message</div>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$('#myButton').tooltip({
+        		'animation':true,
+        		'html':true,//enable html in tooltip
+        		'placement':'auto',//top bottom left right auto
+        		//'selector':'button',
+        		'title':'<h3>Hello World</h3>',
+        		'trigger':'hover focus',//hover focus click manual
+        		'delay':{show:500,hide:1000},//if use js to show or hide tooltip(like below),this setting is unuseful.
+        		'container':'p'//Appends the tooltip to a specific element
+        		
+        	});
+    	});
+    	/* $('#myButton').mouseover(function(e){
+    		$(this).tooltip('show');
+    	});
+    	$('#myButton').mouseout(function(e){
+    		$(this).tooltip('hide');
+    	}); */
+    	$('#showBtn').click(function(e){
+    		$('#myButton').tooltip('show');
+    		
+    	});
+    	$('#hideBtn').click(function(e){
+    		$('#myButton').tooltip('hide');
+    		
+    	});
+    	$('#destBtn').click(function(e){
+    		$('#myButton').tooltip('destroy');
+    		
+    	});
+    	$('#myButton').on('show.bs.tooltip',function(e){
+    		var message = "<font color='red'>before showing tootip</font>";
+    		$('#message').append(message);
+    	});
+    	$('#myButton').on('shown.bs.tooltip',function(e){
+    		var message = "<font color='blue'>after showing tootip complete!</font><br/>";
+    		$('#message').append(message);
+    	});
+    	$('#myButton').on('hide.bs.tooltip',function(e){
+    		var message = "<font color='brown'>before hiding tootip</font>";
+    		$('#message').append(message);
+    	});
+    	$('#myButton').on('hidden.bs.tooltip',function(e){
+    		var message = "<font color='green'>after hiding tootip complete</font><br/>";
+    		$('#message').append(message);
+    	});
+    </script>
+    
+		
+	<script src="js/bootstrap.js"  type="text/javascript"></script>
+</body>
+</html>

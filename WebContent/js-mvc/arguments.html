@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>fn.apply(param1,param2)</title>
+
+	<script type="text/javascript" src="../js/jquery1.10.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//arguments虽然不是数组，但可以当作数组使用，下标由 0 开始
+			function f1(x,y){  
+				var x = 10;  
+				console.log(arguments[0],arguments[1],"参数个数是："+arguments.length);  
+			}  
+			f1(20,40);
+			
+			
+		});
+	</script>
+
+</head>
+<body>
+	arguments 是是JavaScript里的一个内置对象，所有主要的js函数库都利用了arguments对象
+	所有的函数都有属于自己的一个arguments对象，它包括了函所要调用的参数。他不是一个数组，如果用typeof arguments，返回的是’object’。虽然我们可以用调用数据的方法来调用arguments。比如length,还有index方法。但是数 组的push和pop对象是不适用的。
+</body>
+</html>

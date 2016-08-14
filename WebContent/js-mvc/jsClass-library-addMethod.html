@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>给js“类”库增加方法</title>
+
+	<script type="text/javascript" src="../js/jquery1.10.js"></script>
+	<script type="text/javascript" src="helper.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var generateClass=function(){
+				var MyClass = function(country){
+					this.init.apply(this,arguments);//调用此init方法
+				};
+				MyClass.prototype.init = function(){};
+				//定义类（构造函数）的原型属性为别名
+				MyClass.fn = MyClass.prototype;
+				//定义类的别名
+				MyClass.fn.parent = MyClass;//别名是“parent”，是类的属性之一
+				
+				/*给类添加属性（构造函数名.属性名 表示此类的静态属性或方法）*/  
+				MyClass.extend=function(obj){//注：这里的extend和extended，包括下面的include和included都只是代号。
+					//取参数对象的名叫“extended”的属性值。obj参数对象的属性也可能是一个方法。
+					var extended = obj.extended;
+					for(var i in obj){
+						MyClass[i] = obj[i];//把参数对象的所有属性，赋值给构造函数的属性，即为类增加属性。
+					}
+					//判断。如果有名为“extended”的属性，则执行此方法。
+					if(extended){
+						extended(MyClass);//**如果参数对象中有extended属性，则会在加入新加的方法之后（People.extend({)），执行该方法。因此extended也是回调方法**
+					}
+				}
+				/*给实例（MyClass类的实例对象）添加属性*/
+				MyClass.include=function(obj){
+					var included = obj.included;
+					for(var i in obj){
+						MyClass.fn[i] = obj[i];//把参数对象的所有属性赋值给构造函数的原型属性的属性（原型也是对象）。即此类的每个实例都有此对象的属性了。
+					}
+					if(included){
+						included(MyClass);
+					}
+				}
+				return MyClass;
+			};
+			
+			//创建“类”			
+			var People = new generateClass;
+			People.prototype.init = function(){
+				console.log("正在创建People类的实例...");
+			};
+			//向类中加入静态方法，调用之后此类即有刚才的参数对象所有的方法了（MyClass[i] = obj[i]）。
+			//实际上是，通过在类中先前定义的方法，在类中加入新的方法
+			People.extend({//People.extend({...})本身就是在调用类的静态属性或方法。
+				find:function(id){console.log("正在查找id为"+id+"的记录...");},
+				exist:function(id){console.log("正在检查id为"+id+"的记录是否存在...");},
+				extended:function(id){console.log("正在执行extended方法...");}
+			});
+			//使用新加进来的方法
+			People.find(100);
+			People.exist(200);
+			
+			console.log("----------------------------------------------");
+			
+			//向类的所有实例加入新的方法
+			People.include({
+				save:function(name){console.log("正在创建name为"+name+"的记录...");},
+				destory:function(id){console.log("正在销毁id为"+id+"的记录...");},
+				included:function(id){console.log("正在执行included方法...");}
+			});
+			//使用新加入的方法，这里要先创建类的实例
+			var p1 = new People();
+			p1.save("《关于...的报告》");
+			p1.destory(101);
+			
+			//创建另一个类
+			var Student = new generateClass;
+			//向这个类中添加新的方法
+			Student.extend({
+				find:function(id){console.log("正在查找id为"+id+"的学生记录...");},
+				exist:function(id){console.log("正在检查id为"+id+"的学生记录是否存在...");},
+			});
+			//使用新方法
+			Student.find(900);
+			Student.exist(905);
+			
+		});
+	</script>
+
+</head>
+<body>
+	<h3>它已经可
+以支持模块了。模块是可重用的代码段，用这种方法可以实现各种继承，用来在类之间
+共享通用的属性。</h3>
+</body>
+</html>

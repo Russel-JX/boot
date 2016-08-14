@@ -1,0 +1,75 @@
+/*
+ 饮水时间
+*/
+body * {
+	font-family: "黑体";
+	color: #1e1e1e;
+	font-size: 26px;
+}
+
+.bg-drink{
+	width:640px;
+	height:243px;
+	background:url("static/images/drink-time.png"); 
+	filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";  
+	-moz-background-size:100% 100%;  
+	background-size:100% 100%;
+}
+
+.content{
+	padding-left:60px;
+	padding-right:60px;
+}
+.drink-detail{
+	
+}
+
+.h1{
+	color:#0fb5ff;
+}
+.expected{
+	font-size:40px;
+	font-weight:bold;
+	color:#0fb5ff;
+}
+.section{
+	overflow:hidden;
+	width:204px;
+	margin-bottom:37px;
+}
+.clock{
+	margin-right:10px;
+	height:90px;
+}
+.detail{
+	margin-top:3px;
+}
+.detail>span{
+	overflow:hidden;
+	color:#0fb5ff;
+}
+.info{
+	font-size:22px;
+}
+.sections2{
+	padding:48px;
+}
+
+@media only screen and (max-width:640px){/* 手机测试？？ */
+	.tips{
+		width:565px;
+	   	height:172px;
+	   	background:url("static/images/tips.png"); 
+		filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";  
+		-moz-background-size:100% 100%;  
+		background-size:100% 100%;
+	}
+}
+.func{
+	padding:5px;
+}
+.qr-hint {
+ 	margin: 48px auto 45px auto;
+	text-align: center;
+	font-size: 22px;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>自定义事件</title>
+	<link href="../css/bootstrap.css" rel="stylesheet" />
+	<script type="text/javascript" src="../js/jquery1.10.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".dd").on("mypluin.func",function(e,param){
+				alert("div被点击");
+			});
+			$(".dd").trigger("mypluin.func",{name:"Rose",age:"26"});
+			
+			//当元素有浏览器默认行为时
+			$(".clicky").on("click",function(e,param){
+				alert("超链被点击");
+				console.log("name= "+param.name+" age= "+param.age);
+			});
+			$(".clicky").trigger("click",{name:"Jack",age:"24"});
+			
+			
+		});
+	</script>
+
+</head>
+<body>
+	<h3>所有触发的事件现在会冒泡到DOM树上了.即事件也会传递</h3>
+	<h3>jquery使用$().trigger(type,[data])来手动直接触发事件。data可选，传递给事件处理函数</h3>
+	<a href="http://www.baidu.com" class="clicky">访问百度，元素默认行为也会在事件回调函数完成后，执行</a>
+	<div class="dd"></div>
+	
+</body>
+</html>

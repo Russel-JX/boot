@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF8">
+<title>require.js用法</title>
+	<link href="css/bootstrap.css" rel="stylesheet" />
+	<!-- <script src="js/require-jquery.js" type="text/javascript"></script>
+	方法一：直接在js文件中指定需要加载的js文件，然后异步加载
+	<script src="js/my/require-my.js" type="text/javascript"></script>
+	方法二：直接在js文件中制定需要加载的js文件映射，然后异步加载
+	<script src="js/my/require-config.js" type="text/javascript"></script> -->
+	
+	<!-- 方法三：require.js插件和自己的配置js文件放在一个标签中加载直接在js文件中制定需要加载的js文件映射，然后异步加载 -->
+	<script src="js/require-jquery.js" data-main="js/my/require-config.js" type="text/javascript"></script>
+	
+	
+</head>
+<body>
+	<div class="hero-unit">资料链接</div><br>
+	<a href="http://www.open-open.com/lib/view/open1378778013334.html" class="alert alert-info">http://www.open-open.com/lib/view/open1378778013334.html</a><br>
+	<a href="http://www.csdn.net/article/2012-09-27/2810404" class="alert alert-info">http://www.csdn.net/article/2012-09-27/2810404</a><br>
+	<a href="http://www.cnblogs.com/justany/archive/2013/05/28/3100393.html" class="alert alert-info">http://www.cnblogs.com/justany/archive/2013/05/28/3100393.html</a><br>
+	js文件加载顺序<br>
+	<a href="http://puijs.sinaapp.com/sub/require/" class="alert alert-info">http://puijs.sinaapp.com/sub/require/</a><br>
+	require.js定义加载顺序
+</body>
+</html>

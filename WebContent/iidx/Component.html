@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>IIDX 组件</title>
+	<link href="/BootStrap/css/bootstrap.css" rel="stylesheet" />
+	<script src="/BootStrap/js/jquery1.10.js" type="text/javascript"></script>
+
+</head>
+<body>
+	<a href="#" class="btn btn-primary disabled">百度</a>
+	
+	<button id="loading" data-loading-text="Loading..." rel="stateful" class="btn btn-large">Now Go!</button>
+	<button id="search" data-toggle="button" class="btn btn-large">Search</button>
+	
+
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//$("#loading").button("loading");
+			$("#search").button('toggle');
+			
+		});
+	</script>
+</body>
+</html>

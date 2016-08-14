@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF8">
+<title>$.when(deferred1,deferred2...)</title>
+	<!-- 选项卡图标 -->
+	<link  rel="shortcut icon" href="../images/logo.ico"  type="image/x-icon"/>
+	<script src="../js/jquery1.10.js" type="text/javascript"></script>
+	
+		<script type="text/javascript">
+		$(document).ready(function(){
+			//传给when方法的参数，被看作已经受理或成功（resolve）的deferred对象，doCallbacks一定会被调用执行。
+			$.when({test:123}).done(function(param){
+				alert(param.test);
+			});
+			
+			$.when($.ajax("/page1.php"), $.ajax("/page2.php")).then(
+				function(){alert("这两个延迟对象都成功了（resolve）");},
+				function(){alert("这两个延迟对象，至少有一个fail了");}
+			); 
+
+		});
+	</script>
+</head>
+<body>
+	<h5>reference:http://www.css88.com/jqapi-1.9/jQuery.when/</h5>
+	<h3>jQuery.when( deferreds )返回: Promise 描述: 提供一种方法来执行一个或多个对象的回调函数， Deferred(延迟)对象通常表示异步事件。返回值Promise对象</h3>
+	<font color="red">如果<font size="15px;">一个</font>参数被传递给jQuery.when ， 那么它会被当作是一个被受理（resolved）的延迟对象（resolved方法的返回值还是deferred，即延迟对象本身），并且添加到上面的任何 doneCallbacks 都会被立刻执行。
+	向 doneCallbacks 中传入的是原始的参数。在这种情况下，设定的任何 failCallbacks 永远都不会被执行，因为延迟对象永远不会被拒绝（rejected）。</font><br>
+	在多延迟情况下，如果延迟一被拒绝，jQuery.when触发立即调用 master 延迟对象的 failCallbacks。请注意，在上述情况中，有一些延迟对象依然是不能被受理（unresolved）的。
+	那么，在这种情况下，如果需要执行一些额外的处理，例如，取消所有未完成的 ajax 请求，你可以在闭包中进行保持 jqXHR 对象的引用，并且在 failCallback 中检查或取消它们。<br>
+
+	
+	
+</body>
+</html>

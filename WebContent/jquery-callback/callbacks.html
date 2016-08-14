@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF8">
+<title>$.callbacks([flags])</title>
+	<link href="css/bootstrap.css" rel="stylesheet" />
+	<script src="../js/jquery1.10.js" type="text/javascript"></script>
+	
+		<script type="text/javascript">
+		$(document).ready(function(){
+			function fn1(value){
+				console.log("fn1 says:"+value);
+				$("<p>"+"fn1 says:"+value+"</p>").appendTo($("#result_show"));
+			}
+			function fn2(value){
+				console.log("fn2 says:"+value);
+				$("<p>"+"fn2 says:"+value+"</p>").appendTo($("#result_show"));
+			}
+			function fn3(value){
+				console.log("fn3 says:"+value);
+				$("<p>"+"fn3 says:"+value+"</p>").appendTo($("#result_show"));
+				return false;
+			}
+			/*
+			*不使用flags的情况
+			*/
+			var mycallbacks = $.Callbacks();
+			mycallbacks.add(fn1);
+			mycallbacks.fire("foo");//LOG: fn1 says:foo
+			mycallbacks.add(fn2);//先加入类表的方法先执行！
+			mycallbacks.fire("bar");//LOG: fn1 says:bar LOG: fn2 says:bar
+			mycallbacks.remove(fn2);
+			mycallbacks.fire("yes");//LOG: fn1 says:yes
+			
+			/*
+			flag:
+				once:只执行fire一次
+				memory:执行时（fire），将每个fire的参数参数排成列表最后执行（想当于，将fire的执行都放到所有add后面）。
+				unique:想队列中多次加入同一个方法时，只有一个有效
+				stopOnFalse:只要有一个队列中的函数返回false，都将停止继续回调。
+			*/
+			var callbacks2 = $.Callbacks( "once" );
+			callbacks2.add(fn1);
+			callbacks2.fire("A");
+			callbacks2.add(fn2);
+			callbacks2.fire("B");//fn1 says:A
+
+			var callbacks3 = $.Callbacks("memory");
+			callbacks3.add(fn1);
+			callbacks3.fire("i");
+			callbacks3.add(fn2);
+			callbacks3.fire("ii");//fn1 says:i	//fn2 says:i	//fn1 says:ii	//fn2 says:ii
+			
+			var callbacks4 = $.Callbacks("unique");
+			callbacks4.add(fn1);
+			callbacks4.add(fn1);
+			callbacks4.fire("M");//fn1 says:M
+			callbacks4.add(fn2);
+			callbacks4.fire("N");//fn1 says:N	//fn2 says:N
+			
+			var callbacks5 = $.Callbacks("stopOnFalse");
+			callbacks5.add(fn3);
+			callbacks5.fire("S");//fn3 says:S
+			callbacks5.add(fn1);
+			callbacks5.fire("T");//fn3 says:T
+
+
+			
+		});
+	</script>
+</head>
+<body>
+	<h3>$.Callbacks() 支持的方法，包括 callbacks.add(),callbacks.remove(), callbacks.fire() and callbacks.disable().</h3>
+	<h3>flags:（可用的 flags:）
+	</h3>
+	<ul>
+		<li>once: 确保这个回调列表只执行（ .fire() ）一次(像一个递延 Deferred).</li>
+		<li>memory: 保持以前的值，将添加到这个列表的后面的最新的值立即执行调用任何回调 (像一个递延 Deferred).</li>
+		<li>unique: 确保一次只能添加一个回调(所以在列表中没有重复的回调).</li>
+		<li>stopOnFalse: 当一个回调返回false 时中断调用</li>
+	</ul>
+	这是测试结果显示区域：<br>
+	<div id="result_show"></div>
+	
+
+	
+</body>
+</html>

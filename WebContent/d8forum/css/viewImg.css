@@ -1,0 +1,48 @@
+@CHARSET "UTF-8";
+
+/* 修改默认slider样式 */
+.bxslider-inner {/* 图片垂直居中 */
+   	vertical-align: middle;
+    display: inline-block;
+    float: none !important;
+}
+.bx-prev{/* 上一张、下一张按钮 */
+	z-index:99999;
+	width: 15%;
+	height: 50%;
+	background: url(../images/slider-left.png) no-repeat;
+}
+.bx-next{
+	z-index:99999;
+	width: 15%;
+	height: 50%;
+	background: url(../images/slider-right.png) no-repeat;
+}
+.forum-img-slider{
+	background:#000;
+	opacity:0.9;
+}
+.slider-li {
+  	z-index: 99999;
+}
+
+.slider-package{
+}
+
+.slider-package {
+  	position: fixed !important;
+  	top: 10%;
+  	left: 10%;
+  	right: 10%;
+  	z-index: 10000;
+}
+
+.f-container{
+	display: table-cell;
+	height: 300px;
+	vertical-align: middle;
+}
+.forum-img-slider li img {
+  	margin: 0 auto;
+  	vertical-align: middle;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>fn.apply(param1,param2)</title>
+
+	<script type="text/javascript" src="../js/jquery1.10.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			/*原理例子*/
+			var func=new function(){this.a="func"}
+			var myfunc=function(x){
+			   var a="myfunc";
+			   console.log("a的值是对象2中的a的值，不是调用者中的值："+this.a);//**这里的this不是myfunc，而是func。**
+			   console.log("所传的参数是："+x);//**x为var**
+			}
+			myfunc.call(func,"var");
+			/*控制台输出：
+				a的值是对象2中的a的值，不是调用者中的值：func
+				所传的参数是：var
+			*/
+			
+			/*apply用于js类的继承关系中*/
+			function Person(name,age){
+				this.name = name;
+				this.age = age;
+			}
+			function Student(name,age,grade){
+				//这里把的this指代Student，即把Student作为Person类中的this。所以创建学生实例时，学生实例也有了name和age属性。
+				Person.apply(this,arguments);//**arguments对象是js内部对象，它包括了函数调用所需要的参数**
+				this.grade = grade;
+			}
+			var stu = new Student("Russel",24,"Beta B");
+			console.log("stu.name="+stu.name+" stu.age="+stu.age+" stu.grade="+stu.grade);
+			/*控制台输出：
+				stu.name=Russel stu.age=24 stu.grade=Beta B 
+			*/
+			
+			
+			
+		});
+	</script>
+
+</head>
+<body>
+	用指定的对象代替调用者，并调用调用者的方法。<br>
+	对象1.apply(对象2,参数1);
+	<ul>
+		<li>调用者：对象1</li>
+		<li>调用的方法：对象1的方法</li>
+		<li>参数1为传递给对象1方法的参数。</li>
+		<li>调用者：对象1</li>
+		<li>对象2用来代替对象1中的this。</li>
+	</ul>
+	
+	<h4>就是更改对象的内部指针，即改变对象的this指向的内容.即用对象2代替对象1中的this。（本来对象1中的this都是指代对象1的，现在变成了对象2）</h4>
+	
+	<i>此方法的好处之一就是：调用调用者的方法，并可以携带其他对象中的属性作为参数。</i><br>
+	
+	apply()和call()的区别：
+	apply传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而call则作为call的参数传入（从第二个参数开始）。
+</body>
+</html>

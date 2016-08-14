@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>原型 - prototype 用于继承</title>
+
+	<script type="text/javascript" src="../js/jquery1.10.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//定义父类构造方法
+			var Animal = function(){};
+			//定义非静态方法
+			Animal.prototype.breath = function(){
+			console.log('Animal breath');
+			};
+			//子类构造方法
+			var Dog = function(){};
+			// Dog 继承了Animal
+			/*
+				等号右边new Animal()，创建Animal类的一个实例；则这个实例就有breath的方法
+				等号左边Dog.prototype，指代所有Dog类的实例。所以所有Dog类的实例也有breath方法。
+				意思是所有Dog类的实例都是Animal类的实例，即Dog继承自Animal。
+			*/
+			Dog.prototype = new Animal();
+			Dog.prototype.wag = function(){
+			console.log('wag tail');
+			};
+			//test run 
+			var dog = new Dog;
+			dog.wag();
+			dog.breath(); // 继承的属性
+		});
+	</script>
+
+</head>
+<body>
+<h3>reference:http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html</h3>
+<font color="red" size="15">你需要将父类的新实
+例赋值给构造函数的原型</font>
+		<h3>JavaScript 是基于原型的编程语言，原型用来区别类和实例，这里提到一个概念：原型
+对象（prototypical object）。原型是一个“模板”对象，它上面的属性被用做初始化一个
+新对象。任何对象都可以作为另一个对象的原型对象，以此来共享属性。实际上，可以
+将其理解为某种形式的继承。
+</h3>
+<h3>当你读取一个对象的属性时，JavaScript 首先会在本地对象中查找这个属性，如果没有
+找到，JavaScript 开始在对象的原型中查找，若还未找到还会继续查找原型的原型，直
+到查找到Object.prototype。如果找到这个属性，则返回这个值，否则返回undefined。</h3>
+<h3>换句话说，如果你给Array.prototype 添加了属性，那么所有的JavaScript 数组都具有
+了这些属性。</h3>
+</body>
+</html>
