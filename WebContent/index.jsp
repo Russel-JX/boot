@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>index.jsp</title>
+<title>index.jsp test</title>
 
 	<link href="css/bootstrap.css" rel="stylesheet">
 	 
