@@ -1,0 +1,54 @@
+https://www.w3schools.com/css/css_positioning.asp\
+postion定位后，可以设置此元素的top/bottom/left/right属性，即设置元素的顶部或底部或左边缘或右边缘距离某个另一个元素的距离。
+static（静态定位）
+html所有元素默认的定位方式，也是HTML文档流默认的定位方式。
+默认文档流：即所有同级元素都是自上而下排列；不同级的元素，如父元素包含子元素，过个子元素在父元素内自上而下排列。
+默认文档流或者static静态元素不能设置top/bottom/left/right属性,因为此元素严格按照文档流排列方式布局，不受top/bottom/left/right属性控制。
+relative（相对定位）
+此元素相对原来应该按照默认文档流排列位置的位置。
+如：
+例子见：/BootStrap/WebContent/css3/position/position_relative.html
+.d2{
+position:relative
+top:20px;
+left:50px;
+}
+<div class="d1">
+我是div1
+<div>
+<div class="d2">
+我是div2
+<div>
+没有relative效果：
+
+有relative效果：
+
+原来div2默认应该紧接着div1下方布局，设置了relative之后，div2和div1之间上下空了20px，并且距离左边缘空了50px。这就是相对原来默认文档流排列位置的位置。
+fixed（固定定位）
+此元素相对视图、窗口（viewport）的位置。viewport即肉眼能看到的屏幕宽度和高度，不包括滚动条拉动后的内容。
+常用来设置前台固定位置的提示。
+例子见：
+/BootStrap/WebContent/css3/position/position_fixed.html
+absolute（绝对定位）
+相对于最近的一个relative定位的父元素位置的位置。如果最近的父元素不是relative的，则往上在找父亲的父亲有relative的话，就相对父亲的父亲的位置设置top/bottom/left/right属性。
+例子见：/BootStrap/WebContent/css3/position/position_absolute.html
+.d4{
+			position:relative;
+			width:400px;
+			height:150px;
+			border:1px solid lightblue;
+		}
+		.d5{
+			position:absolute;
+			top:50px;
+			right:0px;
+			width:100px;
+			height:50px;
+			border:1px solid lightblue;
+		}
+<div class="d4">
+		<span>今天天气不错嘛！</span>
+		<div class="d5">
+			我是子元素
+		</div>
+	</div>ntent/css3/position/position_absolute.html

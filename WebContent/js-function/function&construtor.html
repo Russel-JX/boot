@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript  函数和构造器</title>
+
+	<script type="text/javascript" src="../js/jquery1.10.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//(a)普通函数。因为方法中没有this定义属性；返回值也没有用属性返回。
+			function C1(){
+				var attr1 = {
+						attr11:"att11value"
+				}
+				return attr1;
+			}
+			var c = new C1();
+			console.log("typeof Object="+typeof Object);//function。Object()是方法
+			console.log("typeof Function="+typeof Function);//function。Function()是方法
+			console.log("typeof C1="+typeof C1);//function。C1()是方法
+			console.log("typeof c="+typeof c);//object。c是对象
+			console.log("Function.prototype===Object.__proto__?"+(Function.prototype===Object.__proto__));//object。c是对象
+			console.log("非构造函数（普通函数）使用："+c.attr11);
+			
+			//(b)构造函数
+			function C2(x,y,z){
+				this.name = x;//定义构造函数的属性
+				this.plus = x+y+z;//定义构造函数的属性
+				this.mult = function(){//定义构造函数内的方法
+					console.log(x*y*z);
+				}
+				return this.plus;//构造器中也可以返回值相当于普通方法。不要此句也行。用此句就是普通方法。
+			}
+			//使用构造函数创建对象
+			var c2 = new C2(2,3,4);
+			console.log("c2的构造函数="+c2.constructor);
+			console.log("c2的构造函数="+(c2.constructor==function));
+			console.log("构造函数（构造器）使用.当成调用普通方法使用"+C2(2,3,4));//当成调用普通方法使用
+			console.log("构造函数（构造器）使用.使用构造器的plus属性="+c2.plus);//使用构造器的属性
+			c2.mult()//使用构造器的方法
+			
+			console.log("对象没有prototype属性"+c2.prototype);//对象没有prototype属性undefined
+			console.log("构造函数的prototype属性="+C2.prototype);//函数和构造器有prototype属性
+			console.log("构造函数的prototype属性="+C1.prototype);//函数和构造器有prototype属性
+			console.log("构造函数的原型等于实例的__proto__属性。"+c2.__proto__===C2.prototype);
+			console.log("打印函数的原型属性的构造器属性C2.prototype.construtor="+C2.prototype.constructor);
+			console.log("构造函数的原型属性的构造器是构造函数自己。"+(C2===C2.prototype.constructor));//TRUE
+			console.log("new对象的__proto__等于构造函数的prototype属性。"+(c2.__proto__===C2.prototype));//TRUE
+			console.log("new对象的__proto__不等于普通函数的prototype属性。"+(c.__proto__===C1.prototype));//false
+			
+			//(c)通过prototype,给构造函数C2拓展新的属性（添加属性）
+			C2.prototype.divide = function(a,b){
+				this.home = "lianshui";
+				this.college = "OUC";
+				return a/b;
+			}
+			//(d)通过prototype,给构造函数C2拓展新的方法（添加方法）
+			C2.prototype.address = "shanghai";
+			var c3 = new C2(3,4,5);
+			console.log("通过prototype,给构造函数C2添加属性。c3.address="+c3.address);
+			var divide = c3.divide;
+			console.log("获取拓展的方法。c3.divide="+(c3.divide));
+			console.log("使用拓展的方法c3.divide(20,5)="+(c3.divide(20,5)));
+			
+			//又一个构造器
+			function SubFunction(a,b,c,d){
+				this.height = a;
+				this.weight = b;
+				this.age = c;
+				this.gender = d;
+			}
+			//prototype，实现构造器的继承（函数的继承）
+			//SubFunction.prototype = C2.prototype;//为什么这句不行？？
+			//(e)相当于SubFunction继承自C2
+			SubFunction.prototype = new C2("Russell",1,2);
+			var c4 = new SubFunction(164,56,26,true);
+			console.log("自己的属性。height="+c4.height);
+			console.log("继承而来的属性。name="+c4.name);
+			console.log("继承而来的方法。mult="+c4.mult);
+		});
+	</script>
+
+</head>
+<body>
+<h3></h3>
+
+</body>
+</html>
