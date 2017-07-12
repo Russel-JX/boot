@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My first angular page</title>
+<script type="text/javascript" src="../js/jquery1.10.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+<link href="../css/bootstrap.css" rel="stylesheet">
+
+</head>
+<body>
+	<div ng-app="myApp" >
+		<div ng-controller="myController">
+			<div class="well">
+				<ul>
+					<li>angular ng-model</li>
+					<li>angular call function</li>
+					<li>angular expression</li>
+				</ul>
+			</div>
+			<div class="row"">
+				<div class="col-lg-6">me: Hi, i'm {{user.name}}. How are you doing?</div>
+				<div class="col-lg-3">other:HI. How old are you?</div>
+				<div class="col-lg-3">me: I'm {{user.age}} years old now.</div>
+			</div>
+			<div class="row">
+				<div class="form-group">
+					<label for="phone">Phone: </label>
+					<input name="phone" type="number" id="phone" ng-model="phone"/>
+				</div>
+				<div class="form-group">
+					<label for="password">Password: </label>
+					<input name="password" id="password" ng-model="password"/>
+				</div>
+				<div class="form-group">
+					<label for="balance1" >Balance1: </label>
+					<input name="balance1" id="balance1" type="number" ng-model="balance1"/>
+				</div>
+				<div class="form-group">
+					<label for="balance2" >Balance2: </label>
+					<input name="balance2" id="balance2" type="number" ng-model="balance2"/>
+				</div>
+				<div ng-show="errorFlag==true">Wrong password!(try 123)</div>
+				Your phone number is: {{phone}}<br>
+				balance1 + balance2 = {{balance1 + balance2}}
+				<div class="row">
+					<button class="col-6 btn-default" ng-click="checkPass()">Submit</button>
+					<button class="col-6 btn-default" >Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
