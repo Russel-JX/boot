@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>循环</title>
+<script type="text/javascript" src="../js/jquery1.10.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/repeat.js"></script>
+
+<link href="../css/bootstrap.css" rel="stylesheet">
+
+</head>
+<body>
+	<div ng-app="myApp" >
+		<div ng-controller="myController">
+			<div class="well">
+				<ul>
+					<li>http://www.yiibai.com/angularjs/angularjs_quick_guide.html   TODO</li>
+					<li>ng-repeat循环</li>
+					<li>嵌套循环</li>
+					<li>嵌套循环（列循环，再列中循环）</li>
+				</ul>
+			</div>
+			
+			<table class="table">
+				<caption>单层循环</caption>
+				<thead>
+					<tr>
+						<th>City</th>
+						<th>AVG Sarary</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="it in items">
+						<td>{{it.address}}</td>
+						<td>{{it.salary}}</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<table class="table" ng-repeat="item in items2">
+				<caption>嵌套循环</caption>
+				<thead>
+					<tr>
+						<th>City</th>
+						<th>AVG Sarary</th>
+					</tr>
+				</thead>
+				<tbody >
+					<tr ng-repeat="it in item">
+						<td>{{it.address}}</td>
+						<td>{{it.salary}}</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<div class="row">
+				<div class="row">循环列，再循环列中的记录</div>
+				<div class="row">
+					<div class="col-md-4">Jiangsu</div>
+					<div class="col-md-4">Zhejiang</div>
+					<div class="col-md-4">Shandong</div>
+				</div>
+				<div class="col-md-4" ng-repeat="item in items3">
+					<div class="row" ng-repeat="it in item">
+						city name:{{it.address}}, population: {{it.population}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
