@@ -7,6 +7,17 @@
 	<script type="text/javascript" src="../js/jquery1.10.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			//构造函数
+			function C1(){
+				var attr1 = {
+						attr11:"att11value"
+				}
+				return attr1;
+			}
+			var c = new C1();
+			console.log("非构造函数（普通函数）使用："+c.attr11);
+			
+			
 			//定义父类构造方法
 			var Animal = function(){};
 			//定义非静态方法
@@ -30,6 +41,21 @@
 			dog.wag();
 			dog.breath(); // 继承的属性
 		});
+		
+		function Car(m,y,s){  
+			   this.m=m;  
+			   this.y=y;  
+			   this.s=s;  
+			    
+			   this.toString = function(){  
+			      return this.m+'has done'+this.s+'miles';  
+			   };  
+			}  
+			var civic = new Car('Honda Civic',2009,20000);  
+			var mondeo = new Car('Ford Mondeo',2010,5000);  
+			  
+			console.log(civic.toString());  
+			console.log(mondeo.toString());
 	</script>
 
 </head>

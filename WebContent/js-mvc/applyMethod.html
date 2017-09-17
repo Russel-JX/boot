@@ -8,15 +8,18 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			/*原理例子*/
-			var func=new function(){this.a="func"}
+			var func=new function(){
+				this.a="abc"
+			}
 			var myfunc=function(x){
-			   var a="myfunc";
+			   var a="edf";
 			   console.log("a的值是对象2中的a的值，不是调用者中的值："+this.a);//**这里的this不是myfunc，而是func。**
 			   console.log("所传的参数是："+x);//**x为var**
 			}
 			myfunc.call(func,"var");
+			//myfunc.call(func,"var2");
 			/*控制台输出：
-				a的值是对象2中的a的值，不是调用者中的值：func
+				a的值是对象2中的a的值，不是调用者中的值：abc
 				所传的参数是：var
 			*/
 			

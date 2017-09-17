@@ -9,9 +9,11 @@
 		$(document).ready(function(){
 			//一个对象的原型（prototype）===其构造函数中的原型属性(对象.constructor.prototype)===Object.getPrototypeOf(对象)===对象.__proto__(IE中不可用)
 			var b={};
+			var pt = b.__proto__;
+			console.log("b对象的原型是："+pt);
 			console.log(Object.getPrototypeOf(b)===b.constructor.prototype&&b.constructor.prototype===b.__proto__);
 			
-			//***原型用在继承中，使次对象有其他对象的属性
+			//***原型用在继承中，使此对象有其他对象的属性
 			var c={};
 			console.log("对象c的未继承前长度是："+c.length);//undefined.未继承前没有length属性
 			c.__proto__=Array.prototype;//通过原型的赋值，来继承Array对象的所有属性
@@ -45,7 +47,7 @@
 			alert(a.x+"--"+A.prototype.x); //23 */
 			
 			/*
-				prototype还可以为函数提供新的属性。
+				prototype还可以为函数提供新的属性和新方法。
 				address为构造函数的新的属性，次函数的所有实例都有此属性。
 				实例对象myAge的原型(myAge.__proto__)是对函数Age的原型属性(Age.prototype)的引用，所以如果修改的是Age的原型属性，
 
@@ -55,8 +57,12 @@
 				this.age = age
 			}
 			Age.prototype.address = "Suzhou";
+			Age.prototype.whatAge = function(age){
+				return age+30;
+			}
 			var myAge = new Age(24);
-			console.log(myAge.address);//Suzhou.
+			console.log("myAge对象的属性："+myAge.address);//Suzhou.
+			console.log("myAge对象调用whatAge方法："+myAge.whatAge(10));//40
 			
 			/*
 				构造函数的constructor属性等于构造函数本身
@@ -77,7 +83,21 @@
 			c.__proto__ = {}; //default object 
 			console.log({}.__proto__.__proto__); //null
 			
-			
+			function Car(m,y,s){  
+				   this.m=m;  
+				   this.y=y;  
+				   this.s=s;  
+				}  
+				    
+				Car.prototype.toString = function(){  
+				      return this.m+'has done'+this.s+'miles';  
+				};  
+				  
+				var civic = new Car('Honda Civic',2009,20000);  
+				var mondeo = new Car('Ford Mondeo',2010,5000);  
+				  
+				console.log(civic.toString());  
+				console.log(mondeo.toString()); 
 		});
 	</script>
 
