@@ -1,6 +1,6 @@
 var myapp = angular.module("myApp",[]);
 myapp.controller("myController",function($scope){
-	$scope.other="I'm other";
+	$scope.other="I'm other haha........cccc。。。。。。。。。";  
 	$scope.weekDay = "Monday";
 	$scope.location = {city:"Shanghai",street:"fangdian 1155"};
 	$scope.weather = "sunny";

@@ -16,7 +16,7 @@ module.exports = function(grunt) {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
       },
       dist: {
-        files: {//把value文件压缩成key文件
+        files: {//把value文件压缩成key文件.这里把concat合并操作对象的目的文件压缩成新文件。
           'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
         }
       }
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
     },
     watch: {
       files: ['<%= jshint.files %>'],
-      tasks: ['jshint', 'qunit']
+      tasks: ['jshint','concat','uglify']//当files属性制定的文件改变后，执行task属性所制定的任务。这里是检查语法，合并，压缩。
     }
   });
 
@@ -47,6 +47,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', ['jshint']);
 
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+  grunt.registerTask('default', ['watch','jshint', 'concat', 'uglify']);
 
 };
